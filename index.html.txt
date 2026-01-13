@@ -207,21 +207,10 @@
     </div>
   </section>
 
-  <section class="readme" id="about">
-    <h3>Как подключить домен к этому сайту</h3>
-    <ol>
-      <li>Сохраните этот файл как <strong>index.html</strong>.</li>
-      <li>Выберите хостинг (например: Timeweb, Beget, Vercel, Netlify).</li>
-      <li>Загрузите файл <strong>index.html</strong> в корень сайта на хостинге.</li>
-      <li>Зайдите в настройки вашего домена (у регистратора).</li>
-      <li>Укажите DNS-серверы хостинга <em>или</em> A-запись на IP хостинга.</li>
-      <li>Подождите 10–60 минут (иногда до 24 часов) — сайт появится по домену.</li>
-    </ol>
-  </section>
-
   <footer id="contacts">
     <p>© 2026 <span>TechStore1</span>. Магазин электроники.</p>
   </footer>
 
 </body>
 </html>
+
