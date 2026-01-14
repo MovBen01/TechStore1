@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TechStore1 — Магазин электроники</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
       --beige: #f5f0e8;
@@ -52,14 +53,14 @@
     }
 
     .hero {
-      padding: 80px 40px;
+      padding: 70px 40px;
       text-align: center;
       background: linear-gradient(180deg, var(--beige), #ffffff);
     }
 
     .hero h2 {
       font-size: 36px;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .hero span {
@@ -68,17 +69,18 @@
 
     .hero p {
       max-width: 600px;
-      margin: 0 auto 30px;
+      margin: 0 auto 25px;
     }
 
     .btn {
       background: var(--purple);
       color: white;
       padding: 12px 28px;
-      border-radius: 8px;
+      border-radius: 10px;
       text-decoration: none;
       font-weight: 600;
       transition: 0.3s;
+      display: inline-block;
     }
 
     .btn:hover {
@@ -97,36 +99,54 @@
 
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .product {
       background: #ffffff;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
     }
 
     .product img {
       width: 100%;
-      height: 160px;
+      height: 220px;
       object-fit: contain;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     .product h4 {
       margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .features {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .features i {
+      color: var(--purple);
+      margin-right: 6px;
     }
 
     .price {
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 700;
       color: var(--purple);
-      margin-bottom: 15px;
+      margin: 15px 0;
     }
 
     footer {
@@ -140,76 +160,58 @@
       color: var(--purple);
       font-weight: 600;
     }
-
-    /* README / Инструкция */
-    .readme {
-      background: #ffffff;
-      margin: 60px 40px;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    }
-
-    .readme h3 {
-      margin-bottom: 15px;
-      color: var(--purple);
-    }
-
-    .readme ol {
-      margin-left: 20px;
-    }
-
-    .readme li {
-      margin-bottom: 10px;
-    }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>TechStore1</h1>
-    <nav>
-      <a href="#catalog">Каталог</a>
-      <a href="#about">О нас</a>
-      <a href="#contacts">Контакты</a>
-    </nav>
-  </header>
+<header>
+  <h1>TechStore1</h1>
+  <nav>
+    <a href="#catalog">Каталог</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <h2>Современная <span>электроника</span> для жизни</h2>
-    <p>Смартфоны, ноутбуки и аксессуары по честным ценам. Удобно, быстро и красиво.</p>
-    <a class="btn" href="#catalog">Перейти в каталог</a>
-  </section>
+<section class="hero">
+  <h2>Оригинальная <span>JBL-акустика</span></h2>
+  <p>Мощный звук, стильный дизайн и быстрая доставка по всей России</p>
+  <a class="btn" href="#catalog">Смотреть товары</a>
+</section>
 
-  <section class="catalog" id="catalog">
-    <h3>Популярные товары</h3>
-    <div class="products">
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200?text=Smartphone" alt="Смартфон" />
-        <h4>Смартфон XPhone 12</h4>
-        <div class="price">39 990 ₽</div>
-        <a class="btn" href="#">Купить</a>
+<section class="catalog" id="catalog">
+  <h3>В наличии</h3>
+  <div class="products">
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1616627986416-c7a5e79fba07?auto=format&fit=crop&w=800&q=80" alt="JBL Charge 6">
+      <h4>JBL Charge 6</h4>
+      <div class="features">
+        <p><i class="fa-solid fa-volume-high"></i> Мощный бас JBL Pro Sound</p>
+        <p><i class="fa-solid fa-battery-full"></i> До 20 часов работы</p>
+        <p><i class="fa-solid fa-water"></i> Защита IP67</p>
       </div>
-
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200?text=Laptop" alt="Ноутбук" />
-        <h4>Ноутбук UltraBook Pro</h4>
-        <div class="price">89 990 ₽</div>
-        <a class="btn" href="#">Купить</a>
-      </div>
-
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200?text=Headphones" alt="Наушники" />
-        <h4>Беспроводные наушники</h4>
-        <div class="price">9 990 ₽</div>
-        <a class="btn" href="#">Купить</a>
-      </div>
+      <div class="price">14 990 ₽</div>
+      <a class="btn" href="#">Купить</a>
     </div>
-  </section>
 
-  <footer id="contacts">
-    <p>© 2026 <span>TechStore1</span>. Магазин электроники.</p>
-  </footer>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1606813909359-4e76c6e7a92b?auto=format&fit=crop&w=800&q=80" alt="JBL Flip 7">
+      <h4>JBL Flip 7</h4>
+      <div class="features">
+        <p><i class="fa-solid fa-music"></i> Чистый фирменный звук</p>
+        <p><i class="fa-solid fa-battery-half"></i> До 12 часов работы</p>
+        <p><i class="fa-solid fa-water"></i> Влагозащита IPX7</p>
+      </div>
+      <div class="price">9 990 ₽</div>
+      <a class="btn" href="#">Купить</a>
+    </div>
+
+  </div>
+</section>
+
+<footer id="contacts">
+  <p>© 2026 <span>TechStore1</span> — магазин портативной акустики JBL</p>
+</footer>
 
 </body>
 </html>
