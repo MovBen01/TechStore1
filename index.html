@@ -1,165 +1,38 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TechStore1 — Магазин электроники</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechStore1 — Электроника и аудио</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
       --beige: #f5f0e8;
       --beige-dark: #e6dfd3;
       --purple: #7b5cff;
-      --purple-soft: #b9a9ff;
       --text: #2e2e2e;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", Tahoma, sans-serif;
-    }
-
-    body {
-      background: var(--beige);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(90deg, var(--beige-dark), var(--beige));
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 3px solid var(--purple);
-    }
-
-    header h1 {
-      color: var(--purple);
-      font-size: 28px;
-    }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: var(--purple);
-    }
-
-    .hero {
-      padding: 70px 40px;
-      text-align: center;
-      background: linear-gradient(180deg, var(--beige), #ffffff);
-    }
-
-    .hero h2 {
-      font-size: 36px;
-      margin-bottom: 15px;
-    }
-
-    .hero span {
-      color: var(--purple);
-    }
-
-    .hero p {
-      max-width: 600px;
-      margin: 0 auto 25px;
-    }
-
-    .btn {
-      background: var(--purple);
-      color: white;
-      padding: 12px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-      display: inline-block;
-    }
-
-    .btn:hover {
-      background: #6849f5;
-    }
-
-    .catalog {
-      padding: 60px 40px;
-    }
-
-    .catalog h3 {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 40px;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .product {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-      display: flex;
-      flex-direction: column;
-      transition: transform .3s, box-shadow .3s;
-    }
-
-    .product:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
-    }
-
-    .product img {
-      width: 100%;
-      height: 220px;
-      object-fit: contain;
-      margin-bottom: 20px;
-    }
-
-    .product h4 {
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-
-    .features {
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    .features i {
-      color: var(--purple);
-      margin-right: 6px;
-    }
-
-    .price {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--purple);
-      margin: 15px 0;
-    }
-
-    footer {
-      background: var(--beige-dark);
-      padding: 30px 40px;
-      text-align: center;
-      margin-top: 60px;
-    }
-
-    footer span {
-      color: var(--purple);
-      font-weight: 600;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    body { background: var(--beige); color: var(--text); }
+    header { background: var(--beige-dark); padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--purple); }
+    header h1 { color: var(--purple); font-size: 28px; text-transform: uppercase; }
+    nav a { margin-left: 20px; text-decoration: none; color: var(--text); font-weight: 600; }
+    nav a:hover { color: var(--purple); }
+    .hero { padding: 80px 40px; text-align: center; background: #fff; border-bottom: 3px solid var(--purple); }
+    .hero h2 { font-size: 36px; color: var(--purple); margin-bottom: 10px; }
+    .hero p { font-size: 18px; margin-bottom: 20px; }
+    .btn { background: var(--purple); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; }
+    .btn:hover { background: #6849f5; }
+    .catalog { padding: 50px 40px; }
+    .catalog h3 { font-size: 28px; text-align: center; margin-bottom: 30px; }
+    .products { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 25px; }
+    .product { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.07); }
+    .product img { width: 100%; height: 230px; object-fit: contain; border-radius: 12px; margin-bottom: 15px; }
+    .product h4 { font-size: 20px; margin-bottom: 8px; }
+    .product .price { font-size: 22px; color: var(--purple); font-weight: bold; margin-bottom: 12px; }
+    .product .features { font-size: 14px; margin-bottom: 15px; }
+    .product .features i { color: var(--purple); margin-right: 8px; }
+    footer { background: var(--beige-dark); padding: 30px 40px; text-align: center; margin-top: 40px; }
   </style>
 </head>
 <body>
@@ -173,46 +46,47 @@
 </header>
 
 <section class="hero">
-  <h2>Оригинальная <span>JBL-акустика</span></h2>
-  <p>Мощный звук, стильный дизайн и быстрая доставка по всей России</p>
-  <a class="btn" href="#catalog">Смотреть товары</a>
+  <h2>Лучшие аудиосистемы</h2>
+  <p>Современная электроника, лучший звук и гарантия качества</p>
+  <a href="#catalog" class="btn">Смотреть товары</a>
 </section>
 
 <section class="catalog" id="catalog">
-  <h3>В наличии</h3>
+  <h3>Наши товары</h3>
   <div class="products">
 
     <div class="product">
-      <img src="jbl-charge-6.jpg" alt="JBL Charge 6">
+      <img src="images/jbl-charge-6.jpg" alt="JBL Charge 6">
       <h4>JBL Charge 6</h4>
-      <div class="features">
-        <p><i class="fa-solid fa-volume-high"></i> Мощный бас JBL Pro Sound</p>
-        <p><i class="fa-solid fa-battery-full"></i> До 20 часов работы</p>
-        <p><i class="fa-solid fa-water"></i> Защита IP67</p>
-      </div>
       <div class="price">14 990 ₽</div>
-      <a class="btn" href="#">Купить</a>
+      <div class="features">
+        <p><i class="fa-solid fa-volume-high"></i> Мощный звук</p>
+        <p><i class="fa-solid fa-battery-full"></i> 20 ч работы</p>
+        <p><i class="fa-solid fa-water"></i> Влагозащита IP67</p>
+      </div>
+      <a class="btn" href="tel:+70000000000">Купить</a>
     </div>
 
     <div class="product">
-      <img src="https://images.unsplash.com/photo-1606813909359-4e76c6e7a92b?auto=format&fit=crop&w=800&q=80" alt="JBL Flip 7">
+      <img src="images/jbl-flip-7.jpg" alt="JBL Flip 7">
       <h4>JBL Flip 7</h4>
-      <div class="features">
-        <p><i class="fa-solid fa-music"></i> Чистый фирменный звук</p>
-        <p><i class="fa-solid fa-battery-half"></i> До 12 часов работы</p>
-        <p><i class="fa-solid fa-water"></i> Влагозащита IPX7</p>
-      </div>
       <div class="price">9 990 ₽</div>
-      <a class="btn" href="#">Купить</a>
+      <div class="features">
+        <p><i class="fa-solid fa-music"></i> Чистый звук</p>
+        <p><i class="fa-solid fa-battery-half"></i> 12 ч работы</p>
+        <p><i class="fa-solid fa-water"></i> Влагозащита</p>
+      </div>
+      <a class="btn" href="tel:+70000000000">Купить</a>
     </div>
 
   </div>
 </section>
 
 <footer id="contacts">
-  <p>© 2026 <span>TechStore1</span> — магазин портативной акустики JBL</p>
+  <p>© 2026 TechStore1 — Магазин электроники</p>
+  <p>Телефон: +7 (900) 000-00-00</p>
+  <p>Email: example@mail.com</p>
 </footer>
 
 </body>
 </html>
-
