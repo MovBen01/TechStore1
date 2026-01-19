@@ -1,93 +1,215 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechStore1 — Электроника и аудио</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechStore1 — Магазин электроники</title>
   <style>
     :root {
       --beige: #f5f0e8;
       --beige-dark: #e6dfd3;
       --purple: #7b5cff;
+      --purple-soft: #b9a9ff;
       --text: #2e2e2e;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-    body { background: var(--beige); color: var(--text); }
-    header { background: var(--beige-dark); padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--purple); }
-    header h1 { color: var(--purple); font-size: 28px; text-transform: uppercase; }
-    nav a { margin-left: 20px; text-decoration: none; color: var(--text); font-weight: 600; }
-    nav a:hover { color: var(--purple); }
-    .hero { padding: 80px 40px; text-align: center; background: #fff; border-bottom: 3px solid var(--purple); }
-    .hero h2 { font-size: 36px; color: var(--purple); margin-bottom: 10px; }
-    .hero p { font-size: 18px; margin-bottom: 20px; }
-    .btn { background: var(--purple); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; }
-    .btn:hover { background: #6849f5; }
-    .catalog { padding: 50px 40px; }
-    .catalog h3 { font-size: 28px; text-align: center; margin-bottom: 30px; }
-    .products { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 25px; }
-    .product { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.07); }
-    .product img { width: 100%; height: 230px; object-fit: contain; border-radius: 12px; margin-bottom: 15px; }
-    .product h4 { font-size: 20px; margin-bottom: 8px; }
-    .product .price { font-size: 22px; color: var(--purple); font-weight: bold; margin-bottom: 12px; }
-    .product .features { font-size: 14px; margin-bottom: 15px; }
-    .product .features i { color: var(--purple); margin-right: 8px; }
-    footer { background: var(--beige-dark); padding: 30px 40px; text-align: center; margin-top: 40px; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+    }
+
+    body {
+      background: var(--beige);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--beige-dark), var(--beige));
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--purple);
+    }
+
+    header h1 {
+      color: var(--purple);
+      font-size: 28px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--purple);
+    }
+
+    .hero {
+      padding: 80px 40px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--beige), #ffffff);
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero span {
+      color: var(--purple);
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .btn {
+      background: var(--purple);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #6849f5;
+    }
+
+    .catalog {
+      padding: 60px 40px;
+    }
+
+    .catalog h3 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product img {
+      width: 100%;
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .product h4 {
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background: var(--beige-dark);
+      padding: 30px 40px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    footer span {
+      color: var(--purple);
+      font-weight: 600;
+    }
+
+    /* README / Инструкция */
+    .readme {
+      background: #ffffff;
+      margin: 60px 40px;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    .readme h3 {
+      margin-bottom: 15px;
+      color: var(--purple);
+    }
+
+    .readme ol {
+      margin-left: 20px;
+    }
+
+    .readme li {
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>TechStore1</h1>
-  <nav>
-    <a href="#catalog">Каталог</a>
-    <a href="#contacts">Контакты</a>
-  </nav>
-</header>
+  <header>
+    <h1>TechStore1</h1>
+    <nav>
+      <a href="#catalog">Каталог</a>
+      <a href="#about">О нас</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+  </header>
 
-<section class="hero">
-  <h2>Лучшие аудиосистемы</h2>
-  <p>Современная электроника, лучший звук и гарантия качества</p>
-  <a href="#catalog" class="btn">Смотреть товары</a>
-</section>
+  <section class="hero">
+    <h2>Современная <span>электроника</span> для жизни</h2>
+    <p>Смартфоны, ноутбуки и аксессуары по честным ценам. Удобно, быстро и красиво.</p>
+    <a class="btn" href="#catalog">Перейти в каталог</a>
+  </section>
 
-<section class="catalog" id="catalog">
-  <h3>Наши товары</h3>
-  <div class="products">
-
-    <div class="product">
-      <img src="images/jbl-charge-6.jpg" alt="JBL Charge 6">
-      <h4>JBL Charge 6</h4>
-      <div class="price">14 990 ₽</div>
-      <div class="features">
-        <p><i class="fa-solid fa-volume-high"></i> Мощный звук</p>
-        <p><i class="fa-solid fa-battery-full"></i> 20 ч работы</p>
-        <p><i class="fa-solid fa-water"></i> Влагозащита IP67</p>
+  <section class="catalog" id="catalog">
+    <h3>Популярные товары</h3>
+    <div class="products">
+      <div class="product">
+        <img src="https://via.placeholder.com/300x200?text=Smartphone" alt="Смартфон" />
+        <h4>Смартфон XPhone 12</h4>
+        <div class="price">39 990 ₽</div>
+        <a class="btn" href="#">Купить</a>
       </div>
-      <a class="btn" href="tel:+70000000000">Купить</a>
-    </div>
 
-    <div class="product">
-      <img src="images/jbl-flip-7.jpg" alt="JBL Flip 7">
-      <h4>JBL Flip 7</h4>
-      <div class="price">9 990 ₽</div>
-      <div class="features">
-        <p><i class="fa-solid fa-music"></i> Чистый звук</p>
-        <p><i class="fa-solid fa-battery-half"></i> 12 ч работы</p>
-        <p><i class="fa-solid fa-water"></i> Влагозащита</p>
+      <div class="product">
+        <img src="https://via.placeholder.com/300x200?text=Laptop" alt="Ноутбук" />
+        <h4>Ноутбук UltraBook Pro</h4>
+        <div class="price">89 990 ₽</div>
+        <a class="btn" href="#">Купить</a>
       </div>
-      <a class="btn" href="tel:+70000000000">Купить</a>
+
+      <div class="product">
+        <img src="https://via.placeholder.com/300x200?text=Headphones" alt="Наушники" />
+        <h4>Беспроводные наушники</h4>
+        <div class="price">9 990 ₽</div>
+        <a class="btn" href="#">Купить</a>
+      </div>
     </div>
+  </section>
 
-  </div>
-</section>
-
-<footer id="contacts">
-  <p>© 2026 TechStore1 — Магазин электроники</p>
-  <p>Телефон: +7 (918) 194-22-25</p>
-  <p>Email: movsesyan.ben@yandex.ru</p>
-</footer>
+  <footer id="contacts">
+    <p>© 2026 <span>TechStore1</span>. Магазин электроники.</p>
+  </footer>
 
 </body>
 </html>
-
