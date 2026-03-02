@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PureHome — Премиальная бытовая химия</title>
+  <title>SoundStore — Оригинальная акустика JBL & Harman Kardon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -11,1012 +11,806 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --accent1: #2dd4bf;
-      --accent2: #0ea5e9;
-      --accent3: #6366f1;
-      --grad: linear-gradient(135deg, #2dd4bf 0%, #0ea5e9 50%, #6366f1 100%);
-      --grad-soft: linear-gradient(135deg, rgba(45,212,191,0.15) 0%, rgba(14,165,233,0.12) 50%, rgba(99,102,241,0.10) 100%);
+      /* Deep electric orange-red → vivid coral → warm amber — энергия, драйв, премиум звук */
+      --a1: #ff4d00;
+      --a2: #ff6b35;
+      --a3: #ffaa00;
+      --grad: linear-gradient(135deg, #ff4d00 0%, #ff6b35 50%, #ffaa00 100%);
+      --grad-r: linear-gradient(135deg, #ffaa00 0%, #ff6b35 50%, #ff4d00 100%);
+      --grad-soft: linear-gradient(135deg, rgba(255,77,0,0.10) 0%, rgba(255,107,53,0.08) 50%, rgba(255,170,0,0.07) 100%);
       --bg: #f8f8ff;
       --white: #ffffff;
-      --text: #1a1a2e;
+      --text: #0f0f1a;
       --text-muted: #64748b;
       --border: #e2e8f0;
-      --shadow: 0 4px 24px rgba(14,165,233,0.08);
-      --shadow-hover: 0 16px 48px rgba(14,165,233,0.18);
-      --radius: 20px;
-      --radius-sm: 12px;
+      --shadow: 0 4px 24px rgba(255,77,0,0.07);
+      --shadow-hover: 0 20px 56px rgba(255,77,0,0.18);
+      --radius: 22px;
+      --radius-sm: 14px;
     }
 
     html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.6; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-
-    /* ─── SCROLLBAR ─── */
-    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--grad); border-radius: 3px; }
 
-    /* ─── ANIMATIONS ─── */
+    /* ── KEYFRAMES ── */
     @keyframes pulse-dot {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.5); opacity: 0.6; }
+      0%,100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(255,107,53,0.5); }
+      50% { transform: scale(1.4); opacity: 0.7; box-shadow: 0 0 0 6px rgba(255,107,53,0); }
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      33% { transform: translateY(-12px) rotate(1deg); }
-      66% { transform: translateY(-6px) rotate(-1deg); }
-    }
-    @keyframes float2 {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-18px); }
-    }
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    @keyframes blob-move {
-      0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: scale(1) rotate(0deg); }
-      33% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: scale(1.05) rotate(5deg); }
-      66% { border-radius: 50% 60% 30% 60% / 30% 40% 60% 50%; transform: scale(0.97) rotate(-3deg); }
-    }
-    @keyframes count-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fade-in-up { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fade-in-left { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
-    @keyframes fade-in-right { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
-    @keyframes shimmer {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(0deg); } 40% { transform: translateY(-14px) rotate(1.5deg); } 70% { transform: translateY(-7px) rotate(-1deg); } }
+    @keyframes float2 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+    @keyframes blob { 0%,100% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; } 33% { border-radius: 30% 60% 70% 40%/50% 60% 30% 60%; } 66% { border-radius: 50% 60% 30% 60%/30% 40% 60% 50%; } }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+    @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes sound-wave {
+      0%,100% { transform: scaleY(0.4); } 20% { transform: scaleY(1); } 40% { transform: scaleY(0.6); } 60% { transform: scaleY(0.9); } 80% { transform: scaleY(0.5); }
     }
 
-    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal-left.visible { opacity: 1; transform: translateX(0); }
-    .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal-l { opacity: 0; transform: translateX(-36px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal-r { opacity: 0; transform: translateX(36px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.vis, .reveal-l.vis, .reveal-r.vis { opacity: 1; transform: none; }
 
-    /* ─── NAV ─── */
+    /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(248,248,255,0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(226,232,240,0.6);
-      transition: box-shadow 0.3s ease;
+      background: rgba(248,248,255,0.88); backdrop-filter: blur(22px);
+      border-bottom: 1px solid rgba(226,232,240,0.5);
+      transition: box-shadow .3s;
     }
-    nav.scrolled { box-shadow: 0 4px 30px rgba(14,165,233,0.1); }
-    .nav-inner {
-      max-width: 1280px; margin: 0 auto;
-      padding: 0 32px;
-      height: 72px;
-      display: flex; align-items: center; justify-content: space-between;
+    nav.scrolled { box-shadow: 0 4px 32px rgba(255,77,0,0.09); }
+    .nav-in {
+      max-width: 1280px; margin: 0 auto; padding: 0 36px;
+      height: 72px; display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo {
-      font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
+    .logo {
+      font-size: 22px; font-weight: 900; letter-spacing: -0.5px; text-decoration: none;
       background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-      text-decoration: none;
     }
-    .nav-logo span { font-weight: 300; }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .logo span { font-weight: 300; }
+    .nav-links { display: flex; gap: 34px; list-style: none; }
     .nav-links a {
-      font-size: 14px; font-weight: 500; color: var(--text-muted);
-      text-decoration: none; transition: color 0.2s;
-      position: relative;
+      font-size: 14px; font-weight: 500; color: var(--text-muted); text-decoration: none;
+      position: relative; transition: color .2s;
     }
     .nav-links a::after {
       content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px;
-      background: var(--grad); border-radius: 1px;
-      transform: scaleX(0); transition: transform 0.2s;
+      background: var(--grad); border-radius: 1px; transform: scaleX(0); transition: transform .2s;
     }
     .nav-links a:hover { color: var(--text); }
     .nav-links a:hover::after { transform: scaleX(1); }
-    .nav-cta {
-      padding: 10px 24px; border-radius: 50px;
-      background: var(--grad); color: white;
-      font-size: 14px; font-weight: 600; border: none; cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 16px rgba(14,165,233,0.3);
+    .nav-btn {
+      padding: 10px 26px; border-radius: 50px; background: var(--grad); color: white;
+      font-size: 14px; font-weight: 700; border: none; cursor: pointer; text-decoration: none;
+      box-shadow: 0 4px 18px rgba(255,77,0,0.28); transition: transform .2s, box-shadow .2s;
     }
-    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(14,165,233,0.4); }
-    .burger {
-      display: none; flex-direction: column; gap: 5px; cursor: pointer;
-      padding: 4px; background: none; border: none;
-    }
-    .burger span {
-      display: block; width: 24px; height: 2px;
-      background: var(--text); border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s;
-    }
-    .mobile-menu {
+    .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,77,0,0.38); }
+    .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+    .mob-menu {
       display: none; position: fixed; top: 72px; left: 0; right: 0;
       background: rgba(248,248,255,0.97); backdrop-filter: blur(20px);
-      padding: 24px 32px; z-index: 999;
-      border-bottom: 1px solid var(--border);
+      padding: 24px 36px; z-index: 999; border-bottom: 1px solid var(--border);
       flex-direction: column; gap: 20px;
     }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 16px; font-weight: 500; color: var(--text); text-decoration: none; }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { font-size: 16px; font-weight: 500; color: var(--text); text-decoration: none; }
 
-    /* ─── HERO ─── */
-    .hero {
-      min-height: 100vh; padding: 120px 32px 80px;
+    /* ── HERO ── */
+    .hero-wrap {
+      min-height: 100vh; padding: 120px 36px 80px;
       max-width: 1280px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: center;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
       position: relative;
     }
-    .hero-bg-blob1 {
-      position: fixed; top: -200px; left: -200px; width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(45,212,191,0.12) 0%, transparent 70%);
+    .bg-blob1 {
+      position: fixed; top: -180px; left: -220px; width: 680px; height: 680px;
+      background: radial-gradient(circle, rgba(255,77,0,0.10) 0%, transparent 70%);
       border-radius: 50%; pointer-events: none; z-index: -1;
-      animation: blob-move 12s ease-in-out infinite;
+      animation: blob 14s ease-in-out infinite;
     }
-    .hero-bg-blob2 {
-      position: fixed; top: 30%; right: -300px; width: 800px; height: 800px;
-      background: radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 70%);
+    .bg-blob2 {
+      position: fixed; top: 25%; right: -280px; width: 760px; height: 760px;
+      background: radial-gradient(circle, rgba(255,170,0,0.09) 0%, transparent 70%);
       border-radius: 50%; pointer-events: none; z-index: -1;
-      animation: blob-move 16s ease-in-out infinite reverse;
+      animation: blob 18s ease-in-out infinite reverse;
     }
     .dots-bg {
       position: fixed; inset: 0; z-index: -1; pointer-events: none;
-      background-image: radial-gradient(circle, rgba(14,165,233,0.12) 1px, transparent 1px);
-      background-size: 40px 40px;
+      background-image: radial-gradient(circle, rgba(255,107,53,0.11) 1px, transparent 1px);
+      background-size: 38px 38px;
     }
-    .hero-badge {
+    .badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(45,212,191,0.1); border: 1px solid rgba(45,212,191,0.3);
-      padding: 8px 16px; border-radius: 50px;
-      font-size: 13px; font-weight: 600; color: #0d9488;
+      background: rgba(255,77,0,0.08); border: 1px solid rgba(255,77,0,0.22);
+      padding: 8px 18px; border-radius: 50px;
+      font-size: 13px; font-weight: 600; color: #cc3d00;
       margin-bottom: 28px;
     }
     .badge-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: #2dd4bf;
+      width: 8px; height: 8px; border-radius: 50%; background: #ff4d00;
       animation: pulse-dot 2s ease-in-out infinite;
-      box-shadow: 0 0 0 3px rgba(45,212,191,0.25);
     }
-    .hero h1 {
-      font-size: clamp(40px, 5vw, 68px); font-weight: 900;
-      line-height: 1.08; letter-spacing: -2px;
-      margin-bottom: 24px;
+    h1 {
+      font-size: clamp(38px, 4.8vw, 66px); font-weight: 900;
+      line-height: 1.07; letter-spacing: -2px; margin-bottom: 22px;
     }
-    .hero h1 .grad-text {
+    .grad-text {
       background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-      background-size: 200% auto;
-      animation: shimmer 4s linear infinite;
+      background-size: 200% auto; animation: shimmer 4s linear infinite;
     }
-    .hero-sub {
-      font-size: 18px; color: var(--text-muted); line-height: 1.7;
-      margin-bottom: 36px; max-width: 480px;
+    .hero-sub { font-size: 17px; color: var(--text-muted); line-height: 1.75; margin-bottom: 34px; max-width: 480px; }
+    .checks { display: flex; flex-direction: column; gap: 12px; margin-bottom: 38px; }
+    .check { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 500; }
+    .check-ic {
+      width: 22px; height: 22px; border-radius: 50%; background: var(--grad);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-    .hero-checks { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
-    .hero-check {
-      display: flex; align-items: center; gap: 12px;
-      font-size: 15px; font-weight: 500; color: var(--text);
+    .check-ic svg { width: 12px; height: 12px; }
+    .btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 34px; }
+    .btn-p {
+      padding: 15px 34px; border-radius: 50px; background: var(--grad); color: white;
+      font-size: 15px; font-weight: 700; border: none; cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 8px 30px rgba(255,77,0,0.32); transition: transform .2s, box-shadow .2s;
     }
-    .check-icon {
-      width: 22px; height: 22px; border-radius: 50%;
-      background: var(--grad); display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .check-icon svg { width: 12px; height: 12px; }
-    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 36px; }
-    .btn-primary {
-      padding: 16px 36px; border-radius: 50px;
-      background: var(--grad); color: white;
-      font-size: 16px; font-weight: 700; border: none; cursor: pointer;
+    .btn-p:hover { transform: translateY(-3px); box-shadow: 0 16px 44px rgba(255,77,0,0.42); }
+    .btn-s {
+      padding: 14px 34px; border-radius: 50px; background: transparent; color: var(--text);
+      font-size: 15px; font-weight: 600; border: 2px solid var(--border); cursor: pointer;
       text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-      box-shadow: 0 8px 32px rgba(14,165,233,0.35);
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: border-color .2s, color .2s, transform .2s;
     }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(14,165,233,0.45); }
-    .btn-secondary {
-      padding: 15px 36px; border-radius: 50px;
-      background: transparent; color: var(--text);
-      font-size: 16px; font-weight: 600;
-      border: 2px solid var(--border); cursor: pointer;
-      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    .btn-s:hover { border-color: var(--a2); color: var(--a1); transform: translateY(-2px); }
+    .social-proof { display: flex; align-items: center; gap: 14px; }
+    .avs { display: flex; }
+    .av {
+      width: 34px; height: 34px; border-radius: 50%; border: 2px solid white;
+      margin-left: -9px; font-size: 11px; font-weight: 700; color: white;
+      display: flex; align-items: center; justify-content: center; background: var(--grad);
     }
-    .btn-secondary:hover { border-color: var(--accent2); color: var(--accent2); transform: translateY(-2px); }
-    .hero-social-proof {
-      display: flex; align-items: center; gap: 14px;
-    }
-    .avatars { display: flex; }
-    .avatars .av {
-      width: 36px; height: 36px; border-radius: 50%;
-      border: 2px solid white; margin-left: -10px;
-      font-size: 12px; font-weight: 700; color: white;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--grad);
-    }
-    .avatars .av:first-child { margin-left: 0; }
-    .social-text { font-size: 13px; color: var(--text-muted); }
-    .social-text strong { color: var(--text); font-weight: 700; }
+    .av:first-child { margin-left: 0; }
+    .sp-text { font-size: 13px; color: var(--text-muted); }
+    .sp-text strong { color: var(--text); font-weight: 700; }
 
-    /* ─── HERO RIGHT ─── */
+    /* ── HERO RIGHT ── */
     .hero-right { position: relative; display: flex; justify-content: center; align-items: center; }
-    .hero-img-wrap {
-      position: relative; z-index: 2;
-      width: 100%; max-width: 480px;
+    .img-glow {
+      position: absolute; inset: -40px;
+      background: radial-gradient(circle, rgba(255,77,0,0.22) 0%, rgba(255,170,0,0.12) 40%, transparent 70%);
+      border-radius: 50%; z-index: 1; animation: float2 7s ease-in-out infinite;
     }
-    .hero-img-glow {
-      position: absolute; inset: -30px;
-      background: radial-gradient(circle, rgba(45,212,191,0.25) 0%, rgba(14,165,233,0.15) 40%, transparent 70%);
-      border-radius: 50%; z-index: 1;
-      animation: float2 6s ease-in-out infinite;
+    .img-border {
+      position: relative; z-index: 2; border-radius: 34px; padding: 3px;
+      background: var(--grad); animation: float 8s ease-in-out infinite; max-width: 460px; width: 100%;
     }
-    .hero-img-border {
-      position: relative; z-index: 2;
-      border-radius: 32px; padding: 3px;
-      background: var(--grad);
-      animation: float 7s ease-in-out infinite;
+    .img-inner {
+      border-radius: 32px; overflow: hidden;
+      background: linear-gradient(145deg, #fff5f0 0%, #fff8f0 50%, #fffbf0 100%);
+      aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center;
     }
-    .hero-img-inner {
-      border-radius: 30px; overflow: hidden;
-      background: linear-gradient(135deg, #e0f7f4 0%, #e0f2fe 50%, #ede9fe 100%);
-      aspect-ratio: 4/5;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .hero-img-inner img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-    }
-    .hero-img-placeholder {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 16px;
-    }
-    .hero-img-placeholder svg { width: 120px; height: 120px; opacity: 0.5; }
-    .hero-float-card {
-      position: absolute; bottom: 40px; left: -30px; z-index: 10;
-      background: white; border-radius: 16px;
-      padding: 14px 20px;
-      box-shadow: 0 8px 40px rgba(14,165,233,0.18);
+    /* Speaker SVG illustration */
+    .speaker-art { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 32px; }
+    .float-card {
+      position: absolute; bottom: 36px; left: -28px; z-index: 10;
+      background: white; border-radius: 18px; padding: 14px 20px;
+      box-shadow: 0 8px 40px rgba(255,77,0,0.16);
       display: flex; align-items: center; gap: 12px;
-      animation: float 5s ease-in-out infinite;
-      min-width: 180px;
+      animation: float 5s ease-in-out infinite; min-width: 190px;
     }
-    .float-card-icon {
-      width: 44px; height: 44px; border-radius: 12px;
-      background: var(--grad); display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
+    .fc-icon {
+      width: 44px; height: 44px; border-radius: 12px; background: var(--grad);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-    .float-card-icon svg { width: 22px; height: 22px; }
-    .float-card-label { font-size: 11px; color: var(--text-muted); font-weight: 500; }
-    .float-card-value { font-size: 20px; font-weight: 800; color: var(--text); line-height: 1.2; }
-    .stars-row { display: flex; gap: 2px; }
-    .star { color: #f59e0b; font-size: 14px; }
+    .fc-icon svg { width: 22px; height: 22px; }
+    .fc-label { font-size: 11px; color: var(--text-muted); font-weight: 500; }
+    .fc-val { font-size: 20px; font-weight: 900; color: var(--text); line-height: 1.2; }
+    .stars { display: flex; gap: 2px; }
+    .star { color: #f59e0b; font-size: 13px; }
 
-    /* ─── MARQUEE ─── */
-    .marquee-section {
-      padding: 28px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    /* ── SOUND WAVE DECORATION ── */
+    .wave-bars {
+      display: flex; align-items: center; gap: 4px; height: 40px;
+      position: absolute; top: 28px; right: -20px; z-index: 10;
+      background: white; border-radius: 12px; padding: 8px 14px;
+      box-shadow: 0 4px 20px rgba(255,77,0,0.12);
+    }
+    .wave-bar {
+      width: 4px; border-radius: 2px; background: var(--grad);
+      animation: sound-wave 1.2s ease-in-out infinite;
+    }
+    .wave-bar:nth-child(1) { height: 16px; animation-delay: 0s; }
+    .wave-bar:nth-child(2) { height: 28px; animation-delay: .15s; }
+    .wave-bar:nth-child(3) { height: 22px; animation-delay: .3s; }
+    .wave-bar:nth-child(4) { height: 32px; animation-delay: .1s; }
+    .wave-bar:nth-child(5) { height: 18px; animation-delay: .25s; }
+    .wave-bar:nth-child(6) { height: 26px; animation-delay: .05s; }
+    .wave-label { font-size: 11px; font-weight: 700; color: var(--a1); margin-left: 6px; white-space: nowrap; }
+
+    /* ── MARQUEE ── */
+    .marquee-sec {
+      padding: 26px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
       overflow: hidden; background: white;
     }
-    .marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
-    .marquee-item {
-      display: flex; align-items: center; gap: 12px;
-      padding: 0 48px; white-space: nowrap;
-      font-size: 15px; font-weight: 600; color: #94a3b8; letter-spacing: 0.5px;
-      text-transform: uppercase;
+    .marquee-track { display: flex; width: max-content; animation: marquee 30s linear infinite; }
+    .m-item {
+      display: flex; align-items: center; gap: 10px; padding: 0 44px;
+      white-space: nowrap; font-size: 14px; font-weight: 700; color: #94a3b8;
+      letter-spacing: 0.8px; text-transform: uppercase;
     }
-    .marquee-dot { width: 5px; height: 5px; border-radius: 50%; background: #cbd5e1; flex-shrink: 0; }
+    .m-dot { width: 5px; height: 5px; border-radius: 50%; background: #cbd5e1; flex-shrink: 0; }
 
-    /* ─── SECTION COMMON ─── */
-    section { padding: 100px 32px; }
+    /* ── SECTIONS ── */
+    section { padding: 96px 36px; }
     .container { max-width: 1280px; margin: 0 auto; }
-    .section-tag {
+    .sec-tag {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(14,165,233,0.08); border: 1px solid rgba(14,165,233,0.2);
+      background: rgba(255,77,0,0.07); border: 1px solid rgba(255,77,0,0.18);
       padding: 6px 16px; border-radius: 50px;
-      font-size: 12px; font-weight: 700; color: var(--accent2);
-      letter-spacing: 1px; text-transform: uppercase;
-      margin-bottom: 20px;
+      font-size: 12px; font-weight: 700; color: var(--a1);
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 18px;
     }
-    .section-title {
-      font-size: clamp(32px, 4vw, 52px); font-weight: 900;
-      line-height: 1.1; letter-spacing: -1.5px;
-      margin-bottom: 16px;
+    .sec-title {
+      font-size: clamp(30px, 3.8vw, 50px); font-weight: 900;
+      line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 14px;
     }
-    .section-sub {
-      font-size: 18px; color: var(--text-muted); line-height: 1.7;
-      max-width: 560px;
-    }
-    .section-header { text-align: center; margin-bottom: 64px; }
-    .section-header .section-sub { margin: 0 auto; }
+    .sec-sub { font-size: 17px; color: var(--text-muted); line-height: 1.7; max-width: 560px; }
+    .sec-head { text-align: center; margin-bottom: 60px; }
+    .sec-head .sec-sub { margin: 0 auto; }
 
-    /* ─── FEATURES ─── */
-    .features-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+    /* ── FEATURES ── */
+    .feat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .feat-card {
+      background: white; border-radius: var(--radius); padding: 34px 30px;
+      box-shadow: var(--shadow); border: 1px solid rgba(226,232,240,0.7);
+      transition: transform .3s, box-shadow .3s; cursor: default;
     }
-    .feature-card {
-      background: white; border-radius: var(--radius);
-      padding: 36px 32px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(226,232,240,0.8);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: default;
+    .feat-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+    .feat-ic {
+      width: 54px; height: 54px; border-radius: 16px; background: var(--grad-soft);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
     }
-    .feature-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 24px 60px rgba(14,165,233,0.15);
-    }
-    .feature-icon-wrap {
-      width: 56px; height: 56px; border-radius: 16px;
-      background: var(--grad-soft); display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px;
-    }
-    .feature-icon-wrap svg { width: 28px; height: 28px; }
-    .feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
-    .feature-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+    .feat-ic svg { width: 26px; height: 26px; }
+    .feat-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 9px; }
+    .feat-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
 
-    /* ─── STATS ─── */
-    .stats-section {
-      background: var(--grad); padding: 80px 32px;
-    }
+    /* ── STATS ── */
+    .stats-sec { background: var(--grad); padding: 76px 36px; }
     .stats-grid {
       max-width: 1280px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 40px; text-align: center;
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; text-align: center;
     }
-    .stat-item { color: white; }
-    .stat-num {
-      font-size: clamp(44px, 5vw, 72px); font-weight: 900;
-      line-height: 1; letter-spacing: -2px;
-      margin-bottom: 8px;
-    }
-    .stat-label { font-size: 15px; font-weight: 500; opacity: 0.85; }
-    .stat-divider {
-      width: 1px; background: rgba(255,255,255,0.2);
-      margin: auto;
-    }
+    .stat { color: white; }
+    .stat-n { font-size: clamp(42px,5vw,70px); font-weight: 900; letter-spacing: -2px; line-height: 1; margin-bottom: 8px; }
+    .stat-l { font-size: 15px; font-weight: 500; opacity: .85; }
 
-    /* ─── HOW IT WORKS ─── */
-    .how-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 0; position: relative; align-items: start;
+    /* ── HOW ── */
+    .how-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; align-items: start; }
+    .how-step { text-align: center; padding: 0 28px; position: relative; }
+    .how-num {
+      width: 62px; height: 62px; border-radius: 50%; background: var(--grad); color: white;
+      font-size: 22px; font-weight: 900; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 22px; position: relative; z-index: 2;
+      box-shadow: 0 8px 24px rgba(255,77,0,0.28);
     }
-    .how-step { text-align: center; padding: 0 32px; position: relative; }
-    .how-step-num {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: var(--grad); color: white;
-      font-size: 24px; font-weight: 900;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 24px; position: relative; z-index: 2;
-      box-shadow: 0 8px 24px rgba(14,165,233,0.3);
-    }
-    .how-connector {
-      position: absolute; top: 32px; left: calc(50% + 32px); right: calc(-50% + 32px);
+    .how-conn {
+      position: absolute; top: 31px; left: calc(50% + 31px); right: calc(-50% + 31px);
       height: 2px; z-index: 1;
-      background: repeating-linear-gradient(90deg, var(--accent2) 0, var(--accent2) 8px, transparent 8px, transparent 16px);
+      background: repeating-linear-gradient(90deg, var(--a2) 0, var(--a2) 8px, transparent 8px, transparent 16px);
     }
-    .how-step:last-child .how-connector { display: none; }
-    .how-icon-wrap {
-      width: 72px; height: 72px; border-radius: 20px;
-      background: white; box-shadow: var(--shadow);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px;
-      border: 1px solid var(--border);
+    .how-step:last-child .how-conn { display: none; }
+    .how-ic {
+      width: 70px; height: 70px; border-radius: 20px; background: white;
+      box-shadow: var(--shadow); display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px; border: 1px solid var(--border);
     }
-    .how-icon-wrap svg { width: 36px; height: 36px; }
-    .how-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
-    .how-step p { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+    .how-ic svg { width: 34px; height: 34px; }
+    .how-step h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+    .how-step p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
 
-    /* ─── REVIEWS ─── */
-    .reviews-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+    /* ── REVIEWS ── */
+    .rev-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .rev-card {
+      background: white; border-radius: var(--radius); padding: 34px 30px;
+      box-shadow: var(--shadow); border: 1px solid rgba(226,232,240,0.7);
+      transition: transform .3s, box-shadow .3s;
     }
-    .review-card {
-      background: white; border-radius: var(--radius);
-      padding: 36px 32px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(226,232,240,0.8);
-      position: relative; overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .review-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
-    .review-quote {
-      font-size: 80px; line-height: 0.7;
+    .rev-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+    .rev-q {
+      font-size: 76px; line-height: .65; font-family: Georgia, serif;
       background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-      font-family: Georgia, serif; margin-bottom: 20px; display: block;
+      margin-bottom: 18px; display: block;
     }
-    .review-text { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 28px; }
-    .review-footer { display: flex; align-items: center; gap: 14px; }
-    .review-avatar {
-      width: 48px; height: 48px; border-radius: 50%;
-      background: var(--grad); color: white;
-      font-size: 16px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
+    .rev-text { font-size: 14px; color: var(--text-muted); line-height: 1.8; margin-bottom: 26px; }
+    .rev-foot { display: flex; align-items: center; gap: 12px; }
+    .rev-av {
+      width: 46px; height: 46px; border-radius: 50%; background: var(--grad); color: white;
+      font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-    .review-name { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
-    .review-role { font-size: 12px; color: var(--text-muted); }
-    .review-stars { display: flex; gap: 3px; margin-bottom: 6px; }
-    .review-stars .star { font-size: 13px; }
+    .rev-name { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+    .rev-role { font-size: 12px; color: var(--text-muted); }
+    .rev-stars { display: flex; gap: 2px; margin-bottom: 5px; }
 
-    /* ─── PRICING ─── */
-    .pricing-toggle {
-      display: flex; align-items: center; gap: 16px;
-      justify-content: center; margin-bottom: 56px;
+    /* ── PRICING ── */
+    .p-toggle { display: flex; align-items: center; gap: 14px; justify-content: center; margin-bottom: 52px; }
+    .p-lbl { font-size: 14px; font-weight: 600; color: var(--text-muted); }
+    .p-lbl.act { color: var(--text); }
+    .p-sw {
+      width: 54px; height: 28px; border-radius: 14px; background: var(--grad);
+      position: relative; cursor: pointer; border: none; outline: none;
     }
-    .toggle-label { font-size: 15px; font-weight: 600; color: var(--text-muted); }
-    .toggle-label.active { color: var(--text); }
-    .toggle-switch {
-      width: 56px; height: 28px; border-radius: 14px;
-      background: var(--grad); position: relative; cursor: pointer;
-      border: none; outline: none;
+    .p-thumb {
+      position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%;
+      background: white; transition: transform .3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
-    .toggle-thumb {
-      position: absolute; top: 3px; left: 3px;
-      width: 22px; height: 22px; border-radius: 50%;
-      background: white; transition: transform 0.3s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
-    .toggle-switch.year .toggle-thumb { transform: translateX(28px); }
-    .discount-badge {
-      background: rgba(45,212,191,0.12); color: #0d9488;
+    .p-sw.yr .p-thumb { transform: translateX(26px); }
+    .disc-badge {
+      background: rgba(255,77,0,0.1); color: var(--a1);
       font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 50px;
-      border: 1px solid rgba(45,212,191,0.3);
+      border: 1px solid rgba(255,77,0,0.25);
     }
-    .pricing-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 24px; align-items: start;
+    .p-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; align-items: start; }
+    .p-card {
+      background: white; border-radius: var(--radius); padding: 38px 30px;
+      box-shadow: var(--shadow); border: 1px solid rgba(226,232,240,0.7);
+      transition: transform .3s, box-shadow .3s; position: relative;
     }
-    .price-card {
-      background: white; border-radius: var(--radius);
-      padding: 40px 32px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(226,232,240,0.8);
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
+    .p-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+    .p-card.pop {
+      background: var(--grad); color: white; border-color: transparent;
+      box-shadow: 0 16px 56px rgba(255,77,0,0.32); transform: scale(1.04);
     }
-    .price-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
-    .price-card.popular {
-      background: var(--grad); color: white;
-      border-color: transparent;
-      box-shadow: 0 16px 60px rgba(14,165,233,0.35);
-      transform: scale(1.04);
-    }
-    .price-card.popular:hover { transform: scale(1.04) translateY(-6px); }
-    .popular-badge {
+    .p-card.pop:hover { transform: scale(1.04) translateY(-6px); }
+    .pop-badge {
       position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-      background: white; color: var(--accent2);
+      background: white; color: var(--a1);
       font-size: 12px; font-weight: 800; padding: 6px 20px; border-radius: 50px;
-      box-shadow: 0 4px 16px rgba(14,165,233,0.2);
-      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(255,77,0,0.18); white-space: nowrap;
     }
-    .price-name { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-    .price-card.popular .price-name { color: rgba(255,255,255,0.8); }
-    .price-amount {
-      font-size: 52px; font-weight: 900; letter-spacing: -2px;
-      line-height: 1; margin-bottom: 4px;
+    .p-name { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .p-card.pop .p-name { color: rgba(255,255,255,0.8); }
+    .p-amt { font-size: 50px; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-bottom: 4px; }
+    .p-per { font-size: 13px; color: var(--text-muted); margin-bottom: 22px; }
+    .p-card.pop .p-per { color: rgba(255,255,255,0.7); }
+    .p-div { height: 1px; background: var(--border); margin: 22px 0; }
+    .p-card.pop .p-div { background: rgba(255,255,255,0.2); }
+    .p-feats { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 30px; }
+    .p-feats li { display: flex; align-items: center; gap: 9px; font-size: 14px; color: var(--text-muted); }
+    .p-card.pop .p-feats li { color: rgba(255,255,255,0.9); }
+    .p-chk {
+      width: 18px; height: 18px; border-radius: 50%; background: rgba(255,77,0,0.1);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-    .price-period { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
-    .price-card.popular .price-period { color: rgba(255,255,255,0.7); }
-    .price-divider {
-      height: 1px; background: var(--border); margin: 24px 0;
-    }
-    .price-card.popular .price-divider { background: rgba(255,255,255,0.2); }
-    .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
-    .price-features li {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 14px; color: var(--text-muted);
-    }
-    .price-card.popular .price-features li { color: rgba(255,255,255,0.9); }
-    .price-check {
-      width: 18px; height: 18px; border-radius: 50%;
-      background: rgba(45,212,191,0.15); display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .price-card.popular .price-check { background: rgba(255,255,255,0.2); }
-    .price-check svg { width: 10px; height: 10px; }
-    .btn-price {
-      width: 100%; padding: 14px; border-radius: 50px;
-      font-size: 15px; font-weight: 700; cursor: pointer; border: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-price-outline {
-      background: transparent; color: var(--text);
-      border: 2px solid var(--border);
-    }
-    .btn-price-outline:hover { border-color: var(--accent2); color: var(--accent2); transform: translateY(-2px); }
-    .btn-price-white {
-      background: white; color: var(--accent2);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-    .btn-price-white:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
-    .btn-price-grad {
-      background: var(--grad); color: white;
-      box-shadow: 0 4px 20px rgba(14,165,233,0.3);
-    }
-    .btn-price-grad:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(14,165,233,0.4); }
+    .p-card.pop .p-chk { background: rgba(255,255,255,0.2); }
+    .p-chk svg { width: 10px; height: 10px; }
+    .btn-po { width: 100%; padding: 14px; border-radius: 50px; font-size: 14px; font-weight: 700; cursor: pointer; border: none; transition: transform .2s, box-shadow .2s; }
+    .btn-po-out { background: transparent; color: var(--text); border: 2px solid var(--border); }
+    .btn-po-out:hover { border-color: var(--a1); color: var(--a1); transform: translateY(-2px); }
+    .btn-po-wh { background: white; color: var(--a1); box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .btn-po-wh:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+    .btn-po-gr { background: var(--grad); color: white; box-shadow: 0 4px 20px rgba(255,77,0,0.28); }
+    .btn-po-gr:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,77,0,0.38); }
 
-    /* ─── FAQ ─── */
-    .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
-    .faq-item {
-      background: white; border-radius: var(--radius-sm);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow); overflow: hidden;
-    }
+    /* ── FAQ ── */
+    .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+    .faq-item { background: white; border-radius: var(--radius-sm); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; }
     .faq-q {
-      width: 100%; padding: 24px 28px;
-      display: flex; align-items: center; justify-content: space-between;
-      background: none; border: none; cursor: pointer;
-      font-size: 16px; font-weight: 600; color: var(--text);
-      text-align: left; gap: 16px;
+      width: 100%; padding: 22px 26px; display: flex; align-items: center; justify-content: space-between;
+      background: none; border: none; cursor: pointer; font-size: 15px; font-weight: 600; color: var(--text);
+      text-align: left; gap: 14px;
     }
-    .faq-icon {
-      width: 28px; height: 28px; border-radius: 50%;
-      background: var(--grad-soft); flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      transition: transform 0.3s, background 0.3s;
+    .faq-ic {
+      width: 28px; height: 28px; border-radius: 50%; background: var(--grad-soft);
+      flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: background .3s;
     }
-    .faq-icon svg { width: 14px; height: 14px; transition: transform 0.3s; }
-    .faq-item.open .faq-icon { background: var(--grad); }
-    .faq-item.open .faq-icon svg { transform: rotate(45deg); }
-    .faq-item.open .faq-icon svg path { stroke: white; }
-    .faq-a {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s ease;
-      padding: 0 28px;
-    }
-    .faq-a-inner { padding-bottom: 24px; font-size: 15px; color: var(--text-muted); line-height: 1.8; }
+    .faq-ic svg { width: 14px; height: 14px; transition: transform .3s; }
+    .faq-item.open .faq-ic { background: var(--grad); }
+    .faq-item.open .faq-ic svg { transform: rotate(45deg); }
+    .faq-item.open .faq-ic svg path { stroke: white; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; padding: 0 26px; }
+    .faq-ai { padding-bottom: 22px; font-size: 14px; color: var(--text-muted); line-height: 1.8; }
     .faq-item.open .faq-a { max-height: 300px; }
 
-    /* ─── CTA ─── */
-    .cta-section {
-      background: var(--grad); padding: 100px 32px;
-      position: relative; overflow: hidden;
-    }
-    .cta-inner { max-width: 700px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
-    .cta-section::before {
-      content: ''; position: absolute; top: -100px; left: -100px;
-      width: 400px; height: 400px;
-      background: rgba(255,255,255,0.08); border-radius: 50%;
-    }
-    .cta-section::after {
-      content: ''; position: absolute; bottom: -150px; right: -100px;
-      width: 500px; height: 500px;
-      background: rgba(255,255,255,0.06); border-radius: 50%;
-    }
-    .cta-inner h2 {
-      font-size: clamp(32px, 4vw, 52px); font-weight: 900;
-      color: white; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 16px;
-    }
-    .cta-inner p { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 40px; }
-    .cta-form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
-    .cta-input {
-      flex: 1; padding: 16px 24px; border-radius: 50px;
-      border: none; outline: none;
-      font-size: 15px; font-family: inherit;
-      background: rgba(255,255,255,0.95);
-      color: var(--text);
-    }
-    .cta-input::placeholder { color: var(--text-muted); }
-    .cta-btn {
-      padding: 16px 32px; border-radius: 50px;
-      background: white; color: var(--accent2);
-      font-size: 15px; font-weight: 700; border: none; cursor: pointer;
-      white-space: nowrap;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    /* ── CTA ── */
+    .cta-sec { background: var(--grad); padding: 96px 36px; position: relative; overflow: hidden; }
+    .cta-in { max-width: 680px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+    .cta-sec::before { content: ''; position: absolute; top: -80px; left: -80px; width: 360px; height: 360px; background: rgba(255,255,255,0.07); border-radius: 50%; }
+    .cta-sec::after { content: ''; position: absolute; bottom: -120px; right: -80px; width: 460px; height: 460px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+    .cta-in h2 { font-size: clamp(30px,4vw,50px); font-weight: 900; color: white; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 14px; }
+    .cta-in p { font-size: 17px; color: rgba(255,255,255,0.82); margin-bottom: 38px; }
+    .cta-form { display: flex; gap: 10px; max-width: 460px; margin: 0 auto; }
+    .cta-inp { flex: 1; padding: 15px 22px; border-radius: 50px; border: none; outline: none; font-size: 14px; font-family: inherit; background: rgba(255,255,255,0.95); color: var(--text); }
+    .cta-inp::placeholder { color: var(--text-muted); }
+    .cta-btn { padding: 15px 30px; border-radius: 50px; background: white; color: var(--a1); font-size: 14px; font-weight: 700; border: none; cursor: pointer; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.12); transition: transform .2s, box-shadow .2s; }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.18); }
 
-    /* ─── FOOTER ─── */
-    footer {
-      background: #f1f5f9; padding: 64px 32px 32px;
-      border-top: 1px solid var(--border);
+    /* ── FOOTER ── */
+    footer { background: #f1f5f9; padding: 60px 36px 30px; border-top: 1px solid var(--border); }
+    .foot-in { max-width: 1280px; margin: 0 auto; }
+    .foot-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+    .foot-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-top: 12px; max-width: 270px; }
+    .foot-col h4 { font-size: 13px; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .foot-col ul li a { font-size: 14px; color: var(--text-muted); text-decoration: none; transition: color .2s; }
+    .foot-col ul li a:hover { color: var(--a1); }
+    .foot-bot { display: flex; align-items: center; justify-content: space-between; padding-top: 28px; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 14px; }
+    .foot-copy { font-size: 13px; color: var(--text-muted); }
+    .soc-icons { display: flex; gap: 10px; }
+    .soc-ic {
+      width: 36px; height: 36px; border-radius: 10px; background: white; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--text-muted);
+      transition: border-color .2s, color .2s, transform .2s;
     }
-    .footer-inner { max-width: 1280px; margin: 0 auto; }
-    .footer-top {
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px; margin-bottom: 48px;
-    }
-    .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-top: 12px; max-width: 280px; }
-    .footer-col h4 { font-size: 14px; font-weight: 700; margin-bottom: 16px; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul li a {
-      font-size: 14px; color: var(--text-muted); text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-col ul li a:hover { color: var(--accent2); }
-    .footer-bottom {
-      display: flex; align-items: center; justify-content: space-between;
-      padding-top: 32px; border-top: 1px solid var(--border);
-      flex-wrap: wrap; gap: 16px;
-    }
-    .footer-copy { font-size: 13px; color: var(--text-muted); }
-    .social-icons { display: flex; gap: 12px; }
-    .social-icon {
-      width: 38px; height: 38px; border-radius: 10px;
-      background: white; border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none; color: var(--text-muted);
-      transition: border-color 0.2s, color 0.2s, transform 0.2s;
-    }
-    .social-icon:hover { border-color: var(--accent2); color: var(--accent2); transform: translateY(-2px); }
-    .social-icon svg { width: 16px; height: 16px; }
+    .soc-ic:hover { border-color: var(--a1); color: var(--a1); transform: translateY(-2px); }
+    .soc-ic svg { width: 15px; height: 15px; }
 
-    /* ─── RESPONSIVE ─── */
+    /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-      .price-card.popular { transform: none; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
+      .feat-grid { grid-template-columns: repeat(2,1fr); }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .p-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+      .p-card.pop { transform: none; }
+      .foot-top { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; gap: 48px; padding: 100px 24px 60px; }
+      .hero-wrap { grid-template-columns: 1fr; gap: 44px; padding: 96px 24px 56px; }
       .hero-right { display: none; }
-      section { padding: 72px 24px; }
-      .features-grid { grid-template-columns: 1fr; }
-      .reviews-grid { grid-template-columns: 1fr; }
-      .how-grid { grid-template-columns: 1fr; gap: 48px; }
-      .how-connector { display: none; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-top { grid-template-columns: 1fr; gap: 32px; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
-      .nav-links, .nav-cta { display: none; }
+      section { padding: 68px 24px; }
+      .feat-grid, .rev-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr; gap: 44px; }
+      .how-conn { display: none; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .foot-top { grid-template-columns: 1fr; gap: 28px; }
+      .foot-bot { flex-direction: column; align-items: flex-start; }
+      .nav-links, .nav-btn { display: none; }
       .burger { display: flex; }
       .cta-form { flex-direction: column; }
-      .cta-input { border-radius: 16px; }
-      .cta-btn { border-radius: 16px; }
+      .cta-inp, .cta-btn { border-radius: 14px; }
     }
   </style>
 </head>
 <body>
 
-<!-- Background elements -->
-<div class="hero-bg-blob1"></div>
-<div class="hero-bg-blob2"></div>
+<div class="bg-blob1"></div>
+<div class="bg-blob2"></div>
 <div class="dots-bg"></div>
 
-<!-- ─── NAV ─── -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">Pure<span>Home</span></a>
+<!-- ── NAV ── -->
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#" class="logo">Sound<span>Store</span></a>
     <ul class="nav-links">
       <li><a href="#features">Преимущества</a></li>
-      <li><a href="#how">Как работает</a></li>
+      <li><a href="#how">Как купить</a></li>
       <li><a href="#reviews">Отзывы</a></li>
-      <li><a href="#pricing">Тарифы</a></li>
+      <li><a href="#pricing">Каталог</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="#cta" class="nav-cta">Заказать</a>
-    <button class="burger" id="burger" aria-label="Меню">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="#cta" class="nav-btn">Купить сейчас</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#features" onclick="closeMobile()">Преимущества</a>
-  <a href="#how" onclick="closeMobile()">Как работает</a>
-  <a href="#reviews" onclick="closeMobile()">Отзывы</a>
-  <a href="#pricing" onclick="closeMobile()">Тарифы</a>
-  <a href="#faq" onclick="closeMobile()">FAQ</a>
-  <a href="#cta" onclick="closeMobile()" class="nav-cta" style="text-align:center">Заказать</a>
+<div class="mob-menu" id="mobMenu">
+  <a href="#features" onclick="closeMob()">Преимущества</a>
+  <a href="#how" onclick="closeMob()">Как купить</a>
+  <a href="#reviews" onclick="closeMob()">Отзывы</a>
+  <a href="#pricing" onclick="closeMob()">Каталог</a>
+  <a href="#faq" onclick="closeMob()">FAQ</a>
+  <a href="#cta" onclick="closeMob()" class="nav-btn" style="text-align:center">Купить сейчас</a>
 </div>
 
-<!-- ─── HERO ─── -->
+<!-- ── HERO ── -->
 <section style="padding:0">
-  <div class="hero">
-    <!-- Left -->
-    <div class="reveal-left">
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        Премиальная формула нового поколения
-      </div>
-      <h1>
-        Чистота, которая<br>
-        <span class="grad-text">меняет всё</span><br>
-        вокруг вас
-      </h1>
+  <div class="hero-wrap">
+    <!-- LEFT -->
+    <div class="reveal-l">
+      <div class="badge"><span class="badge-dot"></span>Только оригинальная продукция · Гарантия 2 года</div>
+      <h1>Звук, который<br><span class="grad-text">захватывает</span><br>с первой ноты</h1>
       <p class="hero-sub">
-        Профессиональная бытовая химия с биоразлагаемыми компонентами.<br>
-        Безопасно для семьи, эффективно против любых загрязнений.
+        Официальные колонки и наушники JBL и Harman Kardon.<br>
+        Беспроводная акустика мирового класса с доставкой по России.
       </p>
-      <div class="hero-checks">
-        <div class="hero-check">
-          <div class="check-icon">
-            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          Гипоаллергенный состав, сертифицирован ЕС
+      <div class="checks">
+        <div class="check">
+          <div class="check-ic"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          100% оригинал с голограммой и серийным номером
         </div>
-        <div class="hero-check">
-          <div class="check-icon">
-            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          Концентрат 1:20 — экономия до 80% стоимости
+        <div class="check">
+          <div class="check-ic"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Официальная гарантия производителя 24 месяца
         </div>
-        <div class="hero-check">
-          <div class="check-icon">
-            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          Доставка по всей России за 24 часа
+        <div class="check">
+          <div class="check-ic"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Доставка по всей России от 1 дня, возврат 14 дней
         </div>
       </div>
-      <div class="hero-btns">
-        <a href="#pricing" class="btn-primary">
-          Выбрать набор
+      <div class="btns">
+        <a href="#pricing" class="btn-p">
+          Смотреть каталог
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#how" class="btn-secondary">
+        <a href="#how" class="btn-s">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 5.5l4 2.5-4 2.5V5.5z" fill="currentColor"/></svg>
-          Как это работает
+          Как проверить оригинал
         </a>
       </div>
-      <div class="hero-social-proof">
-        <div class="avatars">
-          <div class="av">АК</div>
-          <div class="av">МС</div>
-          <div class="av">ОП</div>
-          <div class="av">ДВ</div>
-          <div class="av">+</div>
+      <div class="social-proof">
+        <div class="avs">
+          <div class="av">АН</div><div class="av">КМ</div><div class="av">ДС</div><div class="av">ЕВ</div><div class="av">+</div>
         </div>
-        <div class="social-text">
-          <strong>1 200+</strong> довольных клиентов уже с нами
-        </div>
+        <div class="sp-text"><strong>1 200+</strong> довольных клиентов уже с нами</div>
       </div>
     </div>
 
-    <!-- Right -->
-    <div class="hero-right reveal-right">
-      <div class="hero-img-wrap">
-        <div class="hero-img-glow"></div>
-        <div class="hero-img-border">
-          <div class="hero-img-inner">
-            <!-- Illustration placeholder -->
-            <div class="hero-img-placeholder">
-              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Bottle 1 -->
-                <rect x="52" y="60" width="42" height="110" rx="12" fill="url(#g1)" opacity="0.9"/>
-                <rect x="60" y="44" width="26" height="22" rx="6" fill="url(#g1)" opacity="0.7"/>
-                <rect x="66" y="36" width="14" height="14" rx="4" fill="#0ea5e9" opacity="0.8"/>
-                <rect x="58" y="90" width="30" height="3" rx="1.5" fill="white" opacity="0.4"/>
-                <rect x="58" y="98" width="22" height="2" rx="1" fill="white" opacity="0.3"/>
-                <!-- Bottle 2 -->
-                <rect x="106" y="72" width="46" height="98" rx="14" fill="url(#g2)" opacity="0.9"/>
-                <rect x="114" y="56" width="30" height="22" rx="7" fill="url(#g2)" opacity="0.7"/>
-                <rect x="120" y="46" width="18" height="16" rx="5" fill="#6366f1" opacity="0.8"/>
-                <rect x="112" y="100" width="34" height="3" rx="1.5" fill="white" opacity="0.4"/>
-                <rect x="112" y="108" width="24" height="2" rx="1" fill="white" opacity="0.3"/>
-                <!-- Bubbles -->
-                <circle cx="40" cy="100" r="8" fill="rgba(45,212,191,0.3)"/>
-                <circle cx="168" cy="80" r="12" fill="rgba(99,102,241,0.2)"/>
-                <circle cx="30" cy="150" r="5" fill="rgba(14,165,233,0.25)"/>
-                <circle cx="175" cy="140" r="7" fill="rgba(45,212,191,0.2)"/>
-                <!-- Sparkles -->
-                <path d="M160 55 L163 60 L168 57 L163 62 L160 67 L157 62 L152 57 L157 60 Z" fill="#f59e0b" opacity="0.7"/>
-                <path d="M38 70 L40 74 L44 72 L40 76 L38 80 L36 76 L32 72 L36 74 Z" fill="#2dd4bf" opacity="0.6"/>
+    <!-- RIGHT -->
+    <div class="hero-right reveal-r">
+      <div style="position:relative;width:100%;max-width:460px">
+        <div class="img-glow"></div>
+        <div class="img-border">
+          <div class="img-inner">
+            <div class="speaker-art">
+              <!-- JBL-style speaker SVG illustration -->
+              <svg viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:280px">
+                <!-- Main speaker body -->
+                <rect x="60" y="40" width="200" height="320" rx="36" fill="url(#sb1)"/>
+                <!-- Grille texture -->
+                <rect x="72" y="52" width="176" height="296" rx="28" fill="url(#sb2)" opacity="0.6"/>
+                <!-- Speaker cone large -->
+                <circle cx="160" cy="180" r="72" fill="#1a1a2e" opacity="0.9"/>
+                <circle cx="160" cy="180" r="60" fill="url(#sc1)"/>
+                <circle cx="160" cy="180" r="44" fill="#0f0f1a" opacity="0.95"/>
+                <circle cx="160" cy="180" r="30" fill="url(#sc2)"/>
+                <circle cx="160" cy="180" r="14" fill="white" opacity="0.15"/>
+                <circle cx="160" cy="180" r="6" fill="white" opacity="0.4"/>
+                <!-- Speaker cone small (tweeter) -->
+                <circle cx="160" cy="310" r="28" fill="#1a1a2e" opacity="0.85"/>
+                <circle cx="160" cy="310" r="20" fill="url(#sc3)"/>
+                <circle cx="160" cy="310" r="10" fill="#0f0f1a"/>
+                <circle cx="160" cy="310" r="4" fill="white" opacity="0.3"/>
+                <!-- Top controls -->
+                <circle cx="120" cy="80" r="12" fill="white" opacity="0.15"/>
+                <circle cx="120" cy="80" r="7" fill="url(#sc1)"/>
+                <circle cx="160" cy="72" r="12" fill="white" opacity="0.15"/>
+                <circle cx="160" cy="72" r="7" fill="white" opacity="0.5"/>
+                <circle cx="200" cy="80" r="12" fill="white" opacity="0.15"/>
+                <circle cx="200" cy="80" r="7" fill="url(#sc1)"/>
+                <!-- JBL text -->
+                <text x="160" y="258" text-anchor="middle" font-family="Inter,sans-serif" font-weight="900" font-size="22" fill="white" opacity="0.9" letter-spacing="4">JBL</text>
+                <!-- Shine overlay -->
+                <rect x="60" y="40" width="80" height="320" rx="36" fill="url(#shine)" opacity="0.08"/>
+                <!-- Grille dots pattern -->
+                <pattern id="dots" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+                  <circle cx="4" cy="4" r="1" fill="white" opacity="0.12"/>
+                </pattern>
+                <rect x="72" y="52" width="176" height="296" rx="28" fill="url(#dots)"/>
                 <defs>
-                  <linearGradient id="g1" x1="52" y1="60" x2="94" y2="170" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#2dd4bf"/>
-                    <stop offset="1" stop-color="#0ea5e9"/>
+                  <linearGradient id="sb1" x1="60" y1="40" x2="260" y2="360" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#2a2a3e"/>
+                    <stop offset="1" stop-color="#1a1a2e"/>
                   </linearGradient>
-                  <linearGradient id="g2" x1="106" y1="72" x2="152" y2="170" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#0ea5e9"/>
-                    <stop offset="1" stop-color="#6366f1"/>
+                  <linearGradient id="sb2" x1="72" y1="52" x2="248" y2="348" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#3a3a5e" stop-opacity="0.4"/>
+                    <stop offset="1" stop-color="#1a1a2e" stop-opacity="0"/>
+                  </linearGradient>
+                  <radialGradient id="sc1" cx="50%" cy="40%" r="50%">
+                    <stop stop-color="#ff6b35"/>
+                    <stop offset="0.5" stop-color="#ff4d00"/>
+                    <stop offset="1" stop-color="#cc2200"/>
+                  </radialGradient>
+                  <radialGradient id="sc2" cx="40%" cy="35%" r="50%">
+                    <stop stop-color="#ff9966"/>
+                    <stop offset="1" stop-color="#ff4d00"/>
+                  </radialGradient>
+                  <radialGradient id="sc3" cx="50%" cy="40%" r="50%">
+                    <stop stop-color="#ff6b35"/>
+                    <stop offset="1" stop-color="#cc2200"/>
+                  </radialGradient>
+                  <linearGradient id="shine" x1="60" y1="40" x2="140" y2="360" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="white"/>
+                    <stop offset="1" stop-color="white" stop-opacity="0"/>
                   </linearGradient>
                 </defs>
               </svg>
             </div>
           </div>
         </div>
-        <div class="hero-float-card">
-          <div class="float-card-icon">
+        <!-- Float card -->
+        <div class="float-card">
+          <div class="fc-icon">
             <svg viewBox="0 0 22 22" fill="none"><path d="M11 2l2.4 7.2H21l-6.2 4.5 2.4 7.3L11 16.5l-6.2 4.5 2.4-7.3L1 9.2h7.6L11 2z" fill="white"/></svg>
           </div>
           <div>
-            <div class="float-card-label">Рейтинг покупателей</div>
-            <div class="float-card-value">4.97</div>
-            <div class="stars-row">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
+            <div class="fc-label">Рейтинг покупателей</div>
+            <div class="fc-val">4.98</div>
+            <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
           </div>
+        </div>
+        <!-- Wave bars -->
+        <div class="wave-bars">
+          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+          <span class="wave-label">LIVE SOUND</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── MARQUEE ─── -->
-<div class="marquee-section">
+<!-- ── MARQUEE ── -->
+<div class="marquee-sec">
   <div class="marquee-track">
-    <div class="marquee-item"><span class="marquee-dot"></span>Henkel</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Procter & Gamble</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Unilever</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Reckitt</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Ecover</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Method</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Seventh Generation</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Frosch</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Grass</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Synergetic</div>
-    <!-- duplicate for seamless loop -->
-    <div class="marquee-item"><span class="marquee-dot"></span>Henkel</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Procter & Gamble</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Unilever</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Reckitt</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Ecover</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Method</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Seventh Generation</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Frosch</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Grass</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Synergetic</div>
+    <div class="m-item"><span class="m-dot"></span>JBL</div>
+    <div class="m-item"><span class="m-dot"></span>Harman Kardon</div>
+    <div class="m-item"><span class="m-dot"></span>Samsung Audio</div>
+    <div class="m-item"><span class="m-dot"></span>Bose</div>
+    <div class="m-item"><span class="m-dot"></span>Sony</div>
+    <div class="m-item"><span class="m-dot"></span>Bang & Olufsen</div>
+    <div class="m-item"><span class="m-dot"></span>Marshall</div>
+    <div class="m-item"><span class="m-dot"></span>Sennheiser</div>
+    <div class="m-item"><span class="m-dot"></span>Beats</div>
+    <div class="m-item"><span class="m-dot"></span>Jabra</div>
+    <div class="m-item"><span class="m-dot"></span>JBL</div>
+    <div class="m-item"><span class="m-dot"></span>Harman Kardon</div>
+    <div class="m-item"><span class="m-dot"></span>Samsung Audio</div>
+    <div class="m-item"><span class="m-dot"></span>Bose</div>
+    <div class="m-item"><span class="m-dot"></span>Sony</div>
+    <div class="m-item"><span class="m-dot"></span>Bang & Olufsen</div>
+    <div class="m-item"><span class="m-dot"></span>Marshall</div>
+    <div class="m-item"><span class="m-dot"></span>Sennheiser</div>
+    <div class="m-item"><span class="m-dot"></span>Beats</div>
+    <div class="m-item"><span class="m-dot"></span>Jabra</div>
   </div>
 </div>
 
-<!-- ─── FEATURES ─── -->
+<!-- ── FEATURES ── -->
 <section id="features">
   <div class="container">
-    <div class="section-header">
-      <div class="section-tag reveal">✦ Наши преимущества</div>
-      <h2 class="section-title reveal">Почему выбирают <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">PureHome</span></h2>
-      <p class="section-sub reveal">Мы создаём продукты, которые работают лучше, служат дольше и заботятся о вашей семье и планете.</p>
+    <div class="sec-head">
+      <div class="sec-tag reveal">✦ Наши преимущества</div>
+      <h2 class="sec-title reveal">Почему выбирают <span class="grad-text">SoundStore</span></h2>
+      <p class="sec-sub reveal">Мы специализируемся исключительно на оригинальной беспроводной акустике JBL и Harman Kardon с 2018 года.</p>
     </div>
-    <div class="features-grid">
-      <div class="feature-card reveal" style="transition-delay:0.05s">
-        <div class="feature-icon-wrap">
-          <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="url(#fi1)" stroke-width="2"/><path d="M9 14c0-2.8 2.2-5 5-5s5 2.2 5 5-2.2 5-5 5" stroke="url(#fi1)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="fi1" x1="4" y1="4" x2="24" y2="24"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient></defs></svg>
+    <div class="feat-grid">
+      <div class="feat-card reveal" style="transition-delay:.05s">
+        <div class="feat-ic">
+          <svg viewBox="0 0 26 26" fill="none"><path d="M13 3l2.3 7H22l-5.8 4.2 2.2 7L13 17.2l-5.4 4 2.2-7L4 10h6.7L13 3z" stroke="url(#fi1)" stroke-width="1.8" stroke-linejoin="round"/><defs><linearGradient id="fi1" x1="4" y1="3" x2="22" y2="21"><stop stop-color="#ff4d00"/><stop offset="1" stop-color="#ffaa00"/></linearGradient></defs></svg>
         </div>
-        <h3>Биоразлагаемый состав</h3>
-        <p>100% натуральные ПАВ растительного происхождения. Полностью разлагаются в течение 28 дней, не загрязняя водоёмы.</p>
+        <h3>Гарантия оригинала</h3>
+        <p>Каждый товар поставляется в оригинальной упаковке с голограммой, серийным номером и QR-кодом для проверки на сайте производителя.</p>
       </div>
-      <div class="feature-card reveal" style="transition-delay:0.1s">
-        <div class="feature-icon-wrap">
-          <svg viewBox="0 0 28 28" fill="none"><path d="M14 4l2.5 7.5H24l-6.5 4.7 2.5 7.8L14 19.5l-6 4.5 2.5-7.8L4 11.5h7.5L14 4z" stroke="url(#fi2)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="fi2" x1="4" y1="4" x2="24" y2="24"><stop stop-color="#0ea5e9"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs></svg>
+      <div class="feat-card reveal" style="transition-delay:.1s">
+        <div class="feat-ic">
+          <svg viewBox="0 0 26 26" fill="none"><path d="M13 4C8 4 4 8 4 13s4 9 9 9 9-4 9-9-4-9-9-9z" stroke="url(#fi2)" stroke-width="1.8"/><path d="M13 9v4l3 3" stroke="url(#fi2)" stroke-width="1.8" stroke-linecap="round"/><defs><linearGradient id="fi2" x1="4" y1="4" x2="22" y2="22"><stop stop-color="#ff4d00"/><stop offset="1" stop-color="#ffaa00"/></linearGradient></defs></svg>
         </div>
-        <h3>Профессиональная эффективность</h3>
-        <p>Формулы разработаны совместно с химическими лабораториями Германии. Удаляют 99,9% бактерий и вирусов с первого применения.</p>
+        <h3>Официальная гарантия 2 года</h3>
+        <p>Полная гарантия производителя на все модели. Бесплатный ремонт или замена в авторизованных сервисных центрах по всей России.</p>
       </div>
-      <div class="feature-card reveal" style="transition-delay:0.15s">
-        <div class="feature-icon-wrap">
-          <svg viewBox="0 0 28 28" fill="none"><path d="M14 5C9 5 5 9 5 14s4 9 9 9 9-4 9-9-4-9-9-9z" stroke="url(#fi3)" stroke-width="2"/><path d="M14 10v4l3 3" stroke="url(#fi3)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="fi3" x1="5" y1="5" x2="23" y2="23"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs></svg>
+      <div class="feat-card reveal" style="transition-delay:.15s">
+        <div class="feat-ic">
+          <svg viewBox="0 0 26 26" fill="none"><path d="M4 13h18M4 13l5-5M4 13l5 5" stroke="url(#fi3)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="fi3" x1="4" y1="8" x2="22" y2="18"><stop stop-color="#ff4d00"/><stop offset="1" stop-color="#ffaa00"/></linearGradient></defs></svg>
         </div>
-        <h3>Концентрат экономит время</h3>
-        <p>Один флакон концентрата заменяет 20 обычных бутылок. Меньше поездок в магазин, меньше пластика, больше свободного времени.</p>
+        <h3>Доставка за 1–2 дня</h3>
+        <p>Собственный склад в Москве. Отправляем в день заказа при оплате до 14:00. Доставка по Москве — курьером в день заказа.</p>
       </div>
-      <div class="feature-card reveal" style="transition-delay:0.2s">
-        <div class="feature-icon-wrap">
-          <svg viewBox="0 0 28 28" fill="none"><path d="M7 14l5 5 9-9" stroke="url(#fi4)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14" cy="14" r="10" stroke="url(#fi4)" stroke-width="1.5"/><defs><linearGradient id="fi4" x1="4" y1="4" x2="24" y2="24"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient></defs></svg>
+      <div class="feat-card reveal" style="transition-delay:.2s">
+        <div class="feat-ic">
+          <svg viewBox="0 0 26 26" fill="none"><rect x="4" y="7" width="18" height="14" rx="3" stroke="url(#fi4)" stroke-width="1.8"/><path d="M9 7V6a4 4 0 018 0v1" stroke="url(#fi4)" stroke-width="1.8"/><circle cx="13" cy="14" r="2" fill="url(#fi4)"/><defs><linearGradient id="fi4" x1="4" y1="7" x2="22" y2="21"><stop stop-color="#ff4d00"/><stop offset="1" stop-color="#ffaa00"/></linearGradient></defs></svg>
         </div>
-        <h3>Гипоаллергенная формула</h3>
-        <p>Без фосфатов, хлора, агрессивных красителей и синтетических ароматизаторов. Безопасно для детей с первого года жизни.</p>
+        <h3>Безопасная оплата</h3>
+        <p>Оплата картой, СБП, наличными курьеру или в рассрочку 0%. Данные защищены SSL-шифрованием. Чек и гарантийный талон в комплекте.</p>
       </div>
-      <div class="feature-card reveal" style="transition-delay:0.25s">
-        <div class="feature-icon-wrap">
-          <svg viewBox="0 0 28 28" fill="none"><rect x="5" y="8" width="18" height="14" rx="3" stroke="url(#fi5)" stroke-width="2"/><path d="M9 8V7a5 5 0 0110 0v1" stroke="url(#fi5)" stroke-width="2"/><circle cx="14" cy="15" r="2" fill="url(#fi5)"/><defs><linearGradient id="fi5" x1="5" y1="8" x2="23" y2="22"><stop stop-color="#0ea5e9"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs></svg>
+      <div class="feat-card reveal" style="transition-delay:.25s">
+        <div class="feat-ic">
+          <svg viewBox="0 0 26 26" fill="none"><path d="M6 13l5 5 9-9" stroke="url(#fi5)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="13" r="9" stroke="url(#fi5)" stroke-width="1.5"/><defs><linearGradient id="fi5" x1="4" y1="4" x2="22" y2="22"><stop stop-color="#ff4d00"/><stop offset="1" stop-color="#ffaa00"/></linearGradient></defs></svg>
         </div>
-        <h3>Сертификаты качества</h3>
-        <p>Продукция прошла сертификацию ISO 9001, получила знак «Листок жизни» и одобрена Роспотребнадзором. Полная прозрачность состава.</p>
+        <h3>Возврат без вопросов</h3>
+        <p>14 дней на возврат по любой причине. Бесплатный самовывоз курьером для возврата. Деньги возвращаем в течение 3 рабочих дней.</p>
       </div>
-      <div class="feature-card reveal" style="transition-delay:0.3s">
-        <div class="feature-icon-wrap">
-          <svg viewBox="0 0 28 28" fill="none"><path d="M5 14l4 4 10-10" stroke="url(#fi6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5v3M14 20v3M5 14H2M26 14h-3" stroke="url(#fi6)" stroke-width="1.5" stroke-linecap="round"/><defs><linearGradient id="fi6" x1="2" y1="5" x2="26" y2="23"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs></svg>
+      <div class="feat-card reveal" style="transition-delay:.3s">
+        <div class="feat-ic">
+          <svg viewBox="0 0 26 26" fill="none"><path d="M13 4v4M13 18v4M4 13h4M18 13h4" stroke="url(#fi6)" stroke-width="1.8" stroke-linecap="round"/><circle cx="13" cy="13" r="5" stroke="url(#fi6)" stroke-width="1.8"/><defs><linearGradient id="fi6" x1="4" y1="4" x2="22" y2="22"><stop stop-color="#ff4d00"/><stop offset="1" stop-color="#ffaa00"/></linearGradient></defs></svg>
         </div>
-        <h3>Быстрая доставка</h3>
-        <p>Собственный склад в Москве и партнёрская сеть в 85 регионах. Доставка за 1–2 дня, бесплатно при заказе от 2 000 рублей.</p>
+        <h3>Экспертная поддержка</h3>
+        <p>Аудиофилы в команде помогут выбрать идеальную модель под ваши задачи. Консультация по телефону, WhatsApp и Telegram 7 дней в неделю.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── STATS ─── -->
-<div class="stats-section">
+<!-- ── STATS ── -->
+<div class="stats-sec">
   <div class="stats-grid">
-    <div class="stat-item reveal">
-      <div class="stat-num" data-target="1200" data-suffix="+">0</div>
-      <div class="stat-label">Довольных клиентов</div>
-    </div>
-    <div class="stat-item reveal" style="transition-delay:0.1s">
-      <div class="stat-num" data-target="48" data-suffix=" ч">0</div>
-      <div class="stat-label">Среднее время доставки</div>
-    </div>
-    <div class="stat-item reveal" style="transition-delay:0.2s">
-      <div class="stat-num" data-target="99" data-suffix="%">0</div>
-      <div class="stat-label">Уничтожение бактерий</div>
-    </div>
-    <div class="stat-item reveal" style="transition-delay:0.3s">
-      <div class="stat-num" data-target="80" data-suffix="%">0</div>
-      <div class="stat-label">Экономия на химии</div>
-    </div>
+    <div class="stat reveal"><div class="stat-n" data-target="1200" data-suffix="+">0</div><div class="stat-l">Довольных клиентов</div></div>
+    <div class="stat reveal" style="transition-delay:.1s"><div class="stat-n" data-target="98" data-suffix="%">0</div><div class="stat-l">Оригинальных товаров</div></div>
+    <div class="stat reveal" style="transition-delay:.2s"><div class="stat-n" data-target="24" data-suffix=" ч">0</div><div class="stat-l">Среднее время доставки</div></div>
+    <div class="stat reveal" style="transition-delay:.3s"><div class="stat-n" data-target="5" data-suffix=" лет">0</div><div class="stat-l">На рынке акустики</div></div>
   </div>
 </div>
 
-<!-- ─── HOW IT WORKS ─── -->
+<!-- ── HOW ── -->
 <section id="how">
   <div class="container">
-    <div class="section-header">
-      <div class="section-tag reveal">✦ Процесс</div>
-      <h2 class="section-title reveal">Как это <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">работает</span></h2>
-      <p class="section-sub reveal">Три простых шага до идеальной чистоты в вашем доме без лишних усилий.</p>
+    <div class="sec-head">
+      <div class="sec-tag reveal">✦ Процесс покупки</div>
+      <h2 class="sec-title reveal">Как <span class="grad-text">купить</span> у нас</h2>
+      <p class="sec-sub reveal">Три простых шага до оригинальной акустики JBL или Harman Kardon у вас дома.</p>
     </div>
     <div class="how-grid">
-      <div class="how-step reveal" style="transition-delay:0.05s">
-        <div class="how-step-num">01<div class="how-connector"></div></div>
-        <div class="how-icon-wrap">
-          <svg viewBox="0 0 36 36" fill="none"><rect x="6" y="8" width="24" height="20" rx="4" stroke="url(#hw1)" stroke-width="2"/><path d="M12 16h12M12 21h8" stroke="url(#hw1)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="hw1" x1="6" y1="8" x2="30" y2="28"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient></defs></svg>
+      <div class="how-step reveal" style="transition-delay:.05s">
+        <div class="how-num">01<div class="how-conn"></div></div>
+        <div class="how-ic">
+          <svg viewBox="0 0 34 34" fill="none"><rect x="5" y="7" width="24" height="20" rx="4" stroke="url(#hw1)" stroke-width="1.8"/><path d="M11 15h12M11 20h8" stroke="url(#hw1)" stroke-width="1.8" stroke-linecap="round"/><defs><linearGradient id="hw1" x1="5" y1="7" x2="29" y2="27"><stop stop-color="#ff4d00"/><stop offset="1" stop-color="#ffaa00"/></linearGradient></defs></svg>
         </div>
-        <h3>Выберите набор</h3>
-        <p>Подберите тариф под свои нужды: базовый для квартиры, семейный или профессиональный для дома с детьми и питомцами.</p>
+        <h3>Выберите модель</h3>
+        <p>Просмотрите каталог, сравните характеристики и выберите колонку или наушники. Наши консультанты помогут с выбором.</p>
       </div>
-      <div class="how-step reveal" style="transition-delay:0.15s">
-        <div class="how-step-num">02<div class="how-connector"></div></div>
-        <div class="how-icon-wrap">
-          <svg viewBox="0 0 36 36" fill="none"><path d="M18 6l3 9h9l-7.5 5.5 3 9L18 24l-7.5 5.5 3-9L6 15h9L18 6z" stroke="url(#hw2)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="hw2" x1="6" y1="6" x2="30" y2="30"><stop stop-color="#0ea5e9"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs></svg>
+      <div class="how-step reveal" style="transition-delay:.15s">
+        <div class="how-num">02<div class="how-conn"></div></div>
+        <div class="how-ic">
+          <svg viewBox="0 0 34 34" fill="none"><path d="M6 8h3l2.5 11h11l2.5-8H10" stroke="url(#hw2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14" cy="25" r="2" fill="url(#hw2)"/><circle cx="22" cy="25" r="2" fill="url(#hw2)"/><defs><linearGradient id="hw2" x1="6" y1="8" x2="28" y2="27"><stop stop-color="#ff4d00"/><stop offset="1" stop-color="#ffaa00"/></linearGradient></defs></svg>
         </div>
-        <h3>Получите доставку</h3>
-        <p>Курьер привезёт заказ в удобное время. Упаковка экологичная, многоразовая. Первый заказ — бесплатная доставка.</p>
+        <h3>Оформите заказ</h3>
+        <p>Добавьте в корзину и оформите заказ онлайн. Оплата картой, СБП или наличными. Рассрочка 0% на 6 месяцев.</p>
       </div>
-      <div class="how-step reveal" style="transition-delay:0.25s">
-        <div class="how-step-num">03</div>
-        <div class="how-icon-wrap">
-          <svg viewBox="0 0 36 36" fill="none"><path d="M10 18c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8" stroke="url(#hw3)" stroke-width="2" stroke-linecap="round"/><path d="M14 18l3 3 5-5" stroke="url(#hw3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="hw3" x1="10" y1="10" x2="26" y2="26"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs></svg>
+      <div class="how-step reveal" style="transition-delay:.25s">
+        <div class="how-num">03</div>
+        <div class="how-ic">
+          <svg viewBox="0 0 34 34" fill="none"><path d="M6 17c0-6 4.5-11 11-11s11 5 11 11-4.5 11-11 11" stroke="url(#hw3)" stroke-width="1.8" stroke-linecap="round"/><path d="M12 17l4 4 6-6" stroke="url(#hw3)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="hw3" x1="6" y1="6" x2="28" y2="28"><stop stop-color="#ff4d00"/><stop offset="1" stop-color="#ffaa00"/></linearGradient></defs></svg>
         </div>
-        <h3>Наслаждайтесь чистотой</h3>
-        <p>Разведите концентрат по инструкции и используйте. Один набор хватает на 6–12 месяцев для семьи из четырёх человек.</p>
+        <h3>Получите и наслаждайтесь</h3>
+        <p>Курьер доставит в удобное время. Проверьте оригинальность по QR-коду и наслаждайтесь премиальным звуком JBL.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── REVIEWS ─── -->
+<!-- ── REVIEWS ── -->
 <section id="reviews" style="background:white">
   <div class="container">
-    <div class="section-header">
-      <div class="section-tag reveal">✦ Отзывы</div>
-      <h2 class="section-title reveal">Что говорят <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">клиенты</span></h2>
-      <p class="section-sub reveal">Более 1 200 семей уже перешли на PureHome. Вот что они думают о нашей продукции.</p>
+    <div class="sec-head">
+      <div class="sec-tag reveal">✦ Отзывы клиентов</div>
+      <h2 class="sec-title reveal">Что говорят <span class="grad-text">покупатели</span></h2>
+      <p class="sec-sub reveal">Более 1 200 человек уже оценили качество оригинальной акустики JBL и Harman Kardon от SoundStore.</p>
     </div>
-    <div class="reviews-grid">
-      <div class="review-card reveal" style="transition-delay:0.05s">
-        <span class="review-quote">"</span>
-        <p class="review-text">Перешла на PureHome полгода назад и не могу нарадоваться. Средство для посуды пенится великолепно, запах нейтральный, руки не сохнут. А главное — один флакон концентрата стоит как три обычных, но хватает на год!</p>
-        <div class="review-footer">
-          <div class="review-avatar">АК</div>
+    <div class="rev-grid">
+      <div class="rev-card reveal" style="transition-delay:.05s">
+        <span class="rev-q">"</span>
+        <p class="rev-text">Заказал JBL Charge 5 — пришёл в оригинальной упаковке с голограммой. Проверил серийник на сайте JBL — всё подтвердилось. Звук невероятный, бас мощный. Доставка за сутки по Москве. Рекомендую всем!</p>
+        <div class="rev-foot">
+          <div class="rev-av">АН</div>
           <div>
-            <div class="review-stars">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <div class="review-name">Анна Козлова</div>
-            <div class="review-role">Мама троих детей, Москва</div>
+            <div class="rev-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <div class="rev-name">Алексей Новиков</div>
+            <div class="rev-role">Музыкант, Москва</div>
           </div>
         </div>
       </div>
-      <div class="review-card reveal" style="transition-delay:0.12s">
-        <span class="review-quote">"</span>
-        <p class="review-text">Как аллергик, я очень тщательно выбираю бытовую химию. PureHome — первое средство, после которого у меня не краснеют руки и не слезятся глаза. Состав честный, всё прозрачно. Теперь заказываю каждые полгода целый набор.</p>
-        <div class="review-footer">
-          <div class="review-avatar">МС</div>
+      <div class="rev-card reveal" style="transition-delay:.12s">
+        <span class="rev-q">"</span>
+        <p class="rev-text">Брала Harman Kardon Aura Studio 3 в подарок мужу. Менеджер помог с выбором, рассказал про все отличия от подделок. Упаковка идеальная, звук — как в концертном зале. Муж в восторге, я тоже!</p>
+        <div class="rev-foot">
+          <div class="rev-av">КМ</div>
           <div>
-            <div class="review-stars">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <div class="review-name">Михаил Соколов</div>
-            <div class="review-role">Аллерголог, Санкт-Петербург</div>
+            <div class="rev-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <div class="rev-name">Карина Михайлова</div>
+            <div class="rev-role">Дизайнер интерьеров, СПб</div>
           </div>
         </div>
       </div>
-      <div class="review-card reveal" style="transition-delay:0.2s">
-        <span class="review-quote">"</span>
-        <p class="review-text">Заказываю PureHome для своего мини-отеля уже второй год. Профессиональная линейка справляется с любыми загрязнениями, гости отмечают свежесть и чистоту. Сервис на высшем уровне — менеджер всегда на связи, доставка точно в срок.</p>
-        <div class="review-footer">
-          <div class="review-avatar">ОП</div>
+      <div class="rev-card reveal" style="transition-delay:.2s">
+        <span class="rev-q">"</span>
+        <p class="rev-text">Покупаю уже третью колонку JBL в этом магазине. Цены честные, всё оригинальное. Однажды была небольшая проблема с доставкой — решили за час. Сервис на уровне Apple Store. Больше никуда не хожу.</p>
+        <div class="rev-foot">
+          <div class="rev-av">ДС</div>
           <div>
-            <div class="review-stars">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <div class="review-name">Ольга Петрова</div>
-            <div class="review-role">Владелица мини-отеля, Сочи</div>
+            <div class="rev-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <div class="rev-name">Дмитрий Соловьёв</div>
+            <div class="rev-role">IT-предприниматель, Казань</div>
           </div>
         </div>
       </div>
@@ -1024,193 +818,178 @@
   </div>
 </section>
 
-<!-- ─── PRICING ─── -->
+<!-- ── PRICING ── -->
 <section id="pricing">
   <div class="container">
-    <div class="section-header">
-      <div class="section-tag reveal">✦ Тарифы</div>
-      <h2 class="section-title reveal">Выберите свой <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">набор</span></h2>
-      <p class="section-sub reveal">Прозрачные цены без скрытых платежей. Подписка отменяется в один клик.</p>
+    <div class="sec-head">
+      <div class="sec-tag reveal">✦ Каталог наборов</div>
+      <h2 class="sec-title reveal">Выберите свой <span class="grad-text">набор</span></h2>
+      <p class="sec-sub reveal">Готовые наборы для дома, вечеринок и профессионального использования. Скидка при подписке на год.</p>
     </div>
-    <div class="pricing-toggle reveal">
-      <span class="toggle-label active" id="monthLabel">Ежемесячно</span>
-      <button class="toggle-switch" id="billingToggle" aria-label="Переключить период">
-        <div class="toggle-thumb"></div>
-      </button>
-      <span class="toggle-label" id="yearLabel">Ежегодно</span>
-      <span class="discount-badge">−20%</span>
+    <div class="p-toggle reveal">
+      <span class="p-lbl act" id="mlbl">Разовая покупка</span>
+      <button class="p-sw" id="ptoggle" aria-label="Переключить"><div class="p-thumb"></div></button>
+      <span class="p-lbl" id="ylbl">Подписка на год</span>
+      <span class="disc-badge">−20%</span>
     </div>
-    <div class="pricing-grid">
-      <!-- Basic -->
-      <div class="price-card reveal" style="transition-delay:0.05s">
-        <div class="price-name">Базовый</div>
-        <div class="price-amount" data-month="990" data-year="792">990 ₽</div>
-        <div class="price-period">в месяц · без скрытых платежей</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Средство для посуды (500 мл)</li>
-          <li><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Универсальный спрей (250 мл)</li>
-          <li><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Гель для стирки (1 л)</li>
-          <li><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Бесплатная доставка</li>
-          <li style="opacity:0.4"><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Персональный менеджер</li>
-          <li style="opacity:0.4"><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Профессиональная линейка</li>
+    <div class="p-grid">
+      <!-- Starter -->
+      <div class="p-card reveal" style="transition-delay:.05s">
+        <div class="p-name">Стартовый</div>
+        <div class="p-amt" data-month="7 990" data-year="6 392">7 990 ₽</div>
+        <div class="p-per">разовая покупка · бесплатная доставка</div>
+        <div class="p-div"></div>
+        <ul class="p-feats">
+          <li><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#ff4d00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>JBL Go 3 — компактная колонка</li>
+          <li><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#ff4d00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Гарантийный талон 2 года</li>
+          <li><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#ff4d00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Оригинальная упаковка</li>
+          <li><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#ff4d00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Бесплатная доставка</li>
+          <li style="opacity:.35"><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Персональный подбор</li>
+          <li style="opacity:.35"><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Приоритетная поддержка</li>
         </ul>
-        <button class="btn-price btn-price-outline">Выбрать базовый</button>
+        <button class="btn-po btn-po-out">Выбрать стартовый</button>
       </div>
       <!-- Popular -->
-      <div class="price-card popular reveal" style="transition-delay:0.12s">
-        <div class="popular-badge">⭐ Популярный</div>
-        <div class="price-name">Семейный</div>
-        <div class="price-amount" data-month="1890" data-year="1512">1 890 ₽</div>
-        <div class="price-period">в месяц · полный набор для семьи</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Все средства базового набора</li>
-          <li><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Чистящий крем для ванной</li>
-          <li><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Средство для полов (1 л)</li>
-          <li><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Кондиционер для белья</li>
-          <li><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Персональный менеджер</li>
-          <li style="opacity:0.7"><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Профессиональная линейка</li>
+      <div class="p-card pop reveal" style="transition-delay:.12s">
+        <div class="pop-badge">🔥 Популярный</div>
+        <div class="p-name">Домашний</div>
+        <div class="p-amt" data-month="24 990" data-year="19 992">24 990 ₽</div>
+        <div class="p-per">разовая покупка · полный домашний комплект</div>
+        <div class="p-div"></div>
+        <ul class="p-feats">
+          <li><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>JBL Charge 5 — мощная колонка</li>
+          <li><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>JBL Tune 760NC — наушники ANC</li>
+          <li><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Гарантия 2 года на всё</li>
+          <li><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Персональный подбор</li>
+          <li><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Экспресс-доставка в день заказа</li>
+          <li style="opacity:.7"><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Приоритетная поддержка</li>
         </ul>
-        <button class="btn-price btn-price-white">Выбрать семейный</button>
+        <button class="btn-po btn-po-wh">Выбрать домашний</button>
       </div>
       <!-- Pro -->
-      <div class="price-card reveal" style="transition-delay:0.2s">
-        <div class="price-name">Профессиональный</div>
-        <div class="price-amount" data-month="3490" data-year="2792">3 490 ₽</div>
-        <div class="price-period">в месяц · для бизнеса и больших домов</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Все средства семейного набора</li>
-          <li><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Профессиональная линейка (5 л)</li>
-          <li><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Дезинфектант промышленный</li>
-          <li><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Персональный менеджер 24/7</li>
-          <li><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Приоритетная доставка</li>
-          <li><div class="price-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Индивидуальный состав</li>
+      <div class="p-card reveal" style="transition-delay:.2s">
+        <div class="p-name">Премиум</div>
+        <div class="p-amt" data-month="54 990" data-year="43 992">54 990 ₽</div>
+        <div class="p-per">разовая покупка · для настоящих аудиофилов</div>
+        <div class="p-div"></div>
+        <ul class="p-feats">
+          <li><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#ff4d00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Harman Kardon Aura Studio 3</li>
+          <li><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#ff4d00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>JBL PartyBox 110 — вечеринки</li>
+          <li><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#ff4d00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>JBL Tour One M2 — топ наушники</li>
+          <li><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#ff4d00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Приоритетная поддержка 24/7</li>
+          <li><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#ff4d00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Настройка и демонстрация дома</li>
+          <li><div class="p-chk"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#ff4d00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Расширенная гарантия 3 года</li>
         </ul>
-        <button class="btn-price btn-price-grad">Выбрать про</button>
+        <button class="btn-po btn-po-gr">Выбрать премиум</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── FAQ ─── -->
+<!-- ── FAQ ── -->
 <section id="faq" style="background:white">
   <div class="container">
-    <div class="section-header">
-      <div class="section-tag reveal">✦ Вопросы и ответы</div>
-      <h2 class="section-title reveal">Часто задаваемые <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">вопросы</span></h2>
-      <p class="section-sub reveal">Не нашли ответ? Напишите нам — ответим в течение 15 минут.</p>
+    <div class="sec-head">
+      <div class="sec-tag reveal">✦ Вопросы и ответы</div>
+      <h2 class="sec-title reveal">Часто задаваемые <span class="grad-text">вопросы</span></h2>
+      <p class="sec-sub reveal">Не нашли ответ? Напишите нам в Telegram — ответим за 5 минут.</p>
     </div>
     <div class="faq-list">
       <div class="faq-item reveal">
-        <button class="faq-q">
-          Безопасна ли продукция PureHome для детей и домашних животных?
-          <div class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <button class="faq-q">Как убедиться, что колонка JBL оригинальная, а не подделка?
+          <div class="faq-ic"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#ff4d00" stroke-width="2" stroke-linecap="round"/></svg></div>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Да, абсолютно. Все наши средства прошли дерматологическое тестирование и получили сертификат гипоаллергенности. Формулы не содержат хлора, фосфатов, SLS и агрессивных отдушек. Средства безопасны для детей с рождения и для домашних животных — кошек, собак, грызунов.</div></div>
+        <div class="faq-a"><div class="faq-ai">Каждая колонка JBL имеет уникальный серийный номер на наклейке и в меню устройства. Проверьте его на официальном сайте JBL в разделе «Проверка подлинности». Также обратите внимание на голограмму на упаковке, качество печати и вес устройства — подделки всегда легче. Мы прилагаем к каждому товару сертификат подлинности и инструкцию по проверке.</div></div>
       </div>
-      <div class="faq-item reveal" style="transition-delay:0.05s">
-        <button class="faq-q">
-          Как правильно разводить концентрат и в каких пропорциях?
-          <div class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div class="faq-item reveal" style="transition-delay:.05s">
+        <button class="faq-q">Какой срок гарантии и что в неё входит?
+          <div class="faq-ic"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#ff4d00" stroke-width="2" stroke-linecap="round"/></svg></div>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Каждое средство имеет свою инструкцию по разведению, напечатанную на этикетке. В среднем: 1 часть концентрата на 20 частей воды для универсального спрея, 1:50 для средства для полов. К каждому заказу прилагается карточка с пропорциями и мерный стаканчик. Также инструкции доступны в личном кабинете.</div></div>
+        <div class="faq-a"><div class="faq-ai">Официальная гарантия производителя составляет 24 месяца на все модели JBL и Harman Kardon. Гарантия покрывает производственные дефекты, неисправности электроники и аккумулятора. Не покрывает механические повреждения и попадание воды сверх заявленного класса защиты. Ремонт или замена осуществляется в авторизованных сервисных центрах бесплатно.</div></div>
       </div>
-      <div class="faq-item reveal" style="transition-delay:0.1s">
-        <button class="faq-q">
-          Сколько времени занимает доставка и как отследить заказ?
-          <div class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div class="faq-item reveal" style="transition-delay:.1s">
+        <button class="faq-q">Сколько стоит доставка и как быстро привезут?
+          <div class="faq-ic"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#ff4d00" stroke-width="2" stroke-linecap="round"/></svg></div>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">По Москве и Санкт-Петербургу доставляем за 1 день, в другие города России — 1–3 рабочих дня. После оформления заказа вы получите SMS с трек-номером для отслеживания. Также статус заказа доступен в личном кабинете на сайте. Доставка бесплатна при заказе от 2 000 рублей.</div></div>
+        <div class="faq-a"><div class="faq-ai">По Москве в пределах МКАД — доставка в день заказа при оформлении до 14:00, стоимость 290 рублей или бесплатно при заказе от 5 000 рублей. По России — СДЭК или Почта России, 1–5 рабочих дней, стоимость от 290 рублей. Самовывоз из пункта выдачи СДЭК — бесплатно. Все заказы страхуются на полную стоимость.</div></div>
       </div>
-      <div class="faq-item reveal" style="transition-delay:0.15s">
-        <button class="faq-q">
-          Можно ли отменить подписку или изменить тариф в любое время?
-          <div class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div class="faq-item reveal" style="transition-delay:.15s">
+        <button class="faq-q">Можно ли вернуть товар, если он не понравился?
+          <div class="faq-ic"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#ff4d00" stroke-width="2" stroke-linecap="round"/></svg></div>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Конечно. Вы можете отменить, приостановить или изменить подписку в любой момент через личный кабинет — без звонков и объяснений. Если вы отменяете подписку до следующего списания, оплата не взимается. Мы не практикуем скрытые комиссии или штрафы за отмену.</div></div>
+        <div class="faq-a"><div class="faq-ai">Да, в течение 14 дней с момента получения вы можете вернуть товар без объяснения причин при условии сохранения товарного вида и комплектации. Для возврата свяжитесь с нами — мы организуем бесплатный вывоз курьером. Деньги возвращаем на карту в течение 3 рабочих дней после получения товара на склад.</div></div>
       </div>
-      <div class="faq-item reveal" style="transition-delay:0.2s">
-        <button class="faq-q">
-          Есть ли у вас программа возврата упаковки и экологические инициативы?
-          <div class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div class="faq-item reveal" style="transition-delay:.2s">
+        <button class="faq-q">Есть ли рассрочка или кредит на покупку?
+          <div class="faq-ic"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#ff4d00" stroke-width="2" stroke-linecap="round"/></svg></div>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Да! Мы активно работаем над снижением углеродного следа. Вся упаковка изготовлена из переработанного пластика и картона. Пустые флаконы можно вернуть курьеру при следующей доставке — за каждый флакон начисляем 50 бонусных рублей. С 2024 года мы компенсируем 100% выбросов CO₂ от доставки через партнёрские лесопосадки.</div></div>
+        <div class="faq-a"><div class="faq-ai">Да! Мы предлагаем рассрочку 0% на 6 месяцев через Тинькофф Банк и Сбербанк. Для оформления нужен только паспорт — решение за 2 минуты. Также доступна оплата через СБП, картой любого банка, наличными курьеру или переводом на расчётный счёт для юридических лиц.</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── CTA ─── -->
-<div class="cta-section" id="cta">
-  <div class="cta-inner">
-    <div class="section-tag reveal" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:white;margin-bottom:20px">✦ Начните сегодня</div>
-    <h2 class="reveal">Сделайте дом<br>безупречно чистым</h2>
-    <p class="reveal">Оставьте email — пришлём персональную подборку средств и скидку 15% на первый заказ.</p>
+<!-- ── CTA ── -->
+<div class="cta-sec" id="cta">
+  <div class="cta-in">
+    <div class="sec-tag reveal" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:white;margin-bottom:18px">✦ Специальное предложение</div>
+    <h2 class="reveal">Получите скидку<br>на первый заказ</h2>
+    <p class="reveal">Оставьте email — пришлём промокод на скидку 10% и подборку лучших моделей JBL и Harman Kardon этого сезона.</p>
     <form class="cta-form reveal" onsubmit="handleCta(event)">
-      <input class="cta-input" type="email" placeholder="Ваш email-адрес" required />
+      <input class="cta-inp" type="email" placeholder="Ваш email-адрес" required />
       <button class="cta-btn" type="submit">Получить скидку</button>
     </form>
   </div>
 </div>
 
-<!-- ─── FOOTER ─── -->
+<!-- ── FOOTER ── -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#" class="nav-logo" style="font-size:24px">Pure<span>Home</span></a>
-        <p>Премиальная бытовая химия нового поколения. Безопасно для семьи, эффективно против загрязнений, бережно к планете.</p>
-        <div class="social-icons" style="margin-top:20px">
-          <a href="#" class="social-icon" aria-label="ВКонтакте">
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm3.87 11.07h-1.4c-.53 0-.69-.42-1.64-1.38-.83-.82-1.2-.93-1.4-.93-.29 0-.37.08-.37.47v1.26c0 .33-.1.53-1 .53-1.47 0-3.1-.9-4.25-2.57C.7 6.8.3 5.27.3 4.93c0-.2.08-.38.47-.38h1.4c.35 0 .48.16.61.54.67 1.93 1.8 3.62 2.26 3.62.17 0 .25-.08.25-.52V6.6c-.05-.9-.53-.97-.53-1.29 0-.15.12-.3.32-.3h2.2c.3 0 .4.15.4.5v2.7c0 .3.13.4.22.4.17 0 .32-.1.64-.42 1-.1.1-2.12 1.97-2.37 2.3-.2.25-.38.3-.7.3z"/></svg>
-          </a>
-          <a href="#" class="social-icon" aria-label="Telegram">
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm3.93 5.4l-1.34 6.3c-.1.44-.36.55-.73.34l-2-1.47-1 .93c-.1.1-.2.19-.4.19l.14-2.02 3.7-3.34c.16-.14-.04-.22-.25-.08L4.6 9.87 2.63 9.27c-.43-.14-.44-.43.09-.63l7.68-2.96c.36-.13.67.09.53.72z"/></svg>
-          </a>
-          <a href="#" class="social-icon" aria-label="YouTube">
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm3.5 8.13l-5 2.87c-.28.16-.5.02-.5-.3V5.3c0-.32.22-.46.5-.3l5 2.87c.28.16.28.4 0 .56z"/></svg>
-          </a>
-          <a href="#" class="social-icon" aria-label="Instagram">
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm0 5.5A2.5 2.5 0 1 1 8 10.5 2.5 2.5 0 0 1 8 5.5zm4.5-.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zM8 4a4 4 0 1 0 0 8A4 4 0 0 0 8 4zm4.5-1.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S14 4.83 14 4s-.67-1.5-1.5-1.5z"/></svg>
-          </a>
+  <div class="foot-in">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#" class="logo" style="font-size:22px">Sound<span>Store</span></a>
+        <p>Официальный магазин оригинальной беспроводной акустики JBL и Harman Kardon. Гарантия подлинности на каждый товар.</p>
+        <div class="soc-icons" style="margin-top:18px">
+          <a href="#" class="soc-ic" aria-label="ВКонтакте"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm3.87 11.07h-1.4c-.53 0-.69-.42-1.64-1.38-.83-.82-1.2-.93-1.4-.93-.29 0-.37.08-.37.47v1.26c0 .33-.1.53-1 .53-1.47 0-3.1-.9-4.25-2.57C.7 6.8.3 5.27.3 4.93c0-.2.08-.38.47-.38h1.4c.35 0 .48.16.61.54.67 1.93 1.8 3.62 2.26 3.62.17 0 .25-.08.25-.52V6.6c-.05-.9-.53-.97-.53-1.29 0-.15.12-.3.32-.3h2.2c.3 0 .4.15.4.5v2.7c0 .3.13.4.22.4.17 0 .32-.1.64-.42 1-.1.1-2.12 1.97-2.37 2.3-.2.25-.38.3-.7.3z"/></svg></a>
+          <a href="#" class="soc-ic" aria-label="Telegram"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm3.93 5.4l-1.34 6.3c-.1.44-.36.55-.73.34l-2-1.47-1 .93c-.1.1-.2.19-.4.19l.14-2.02 3.7-3.34c.16-.14-.04-.22-.25-.08L4.6 9.87 2.63 9.27c-.43-.14-.44-.43.09-.63l7.68-2.96c.36-.13.67.09.53.72z"/></svg></a>
+          <a href="#" class="soc-ic" aria-label="YouTube"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm3.5 8.13l-5 2.87c-.28.16-.5.02-.5-.3V5.3c0-.32.22-.46.5-.3l5 2.87c.28.16.28.4 0 .56z"/></svg></a>
+          <a href="#" class="soc-ic" aria-label="Instagram"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm0 5.5A2.5 2.5 0 1 1 8 10.5 2.5 2.5 0 0 1 8 5.5zm4.5-.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zM8 4a4 4 0 1 0 0 8A4 4 0 0 0 8 4z"/></svg></a>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Продукция</h4>
+      <div class="foot-col">
+        <h4>Каталог</h4>
         <ul>
-          <li><a href="#">Средства для кухни</a></li>
-          <li><a href="#">Средства для ванной</a></li>
-          <li><a href="#">Средства для стирки</a></li>
-          <li><a href="#">Средства для полов</a></li>
-          <li><a href="#">Дезинфектанты</a></li>
+          <li><a href="#">Портативные колонки JBL</a></li>
+          <li><a href="#">Домашняя акустика HK</a></li>
+          <li><a href="#">Наушники JBL</a></li>
+          <li><a href="#">Саундбары</a></li>
+          <li><a href="#">Аксессуары</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="foot-col">
         <h4>Компания</h4>
         <ul>
-          <li><a href="#">О нас</a></li>
+          <li><a href="#">О магазине</a></li>
           <li><a href="#">Сертификаты</a></li>
-          <li><a href="#">Блог</a></li>
-          <li><a href="#">Карьера</a></li>
+          <li><a href="#">Блог об акустике</a></li>
+          <li><a href="#">Партнёрам</a></li>
           <li><a href="#">Контакты</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Поддержка</h4>
+      <div class="foot-col">
+        <h4>Покупателям</h4>
         <ul>
           <li><a href="#">Доставка и оплата</a></li>
           <li><a href="#">Возврат товара</a></li>
-          <li><a href="#">Инструкции</a></li>
-          <li><a href="#">Программа лояльности</a></li>
-          <li><a href="#">Партнёрам</a></li>
+          <li><a href="#">Гарантия</a></li>
+          <li><a href="#">Проверка оригинала</a></li>
+          <li><a href="#">Сервисные центры</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 PureHome. Все права защищены. ИНН 7701234567</div>
-      <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <div class="foot-bot">
+      <div class="foot-copy">© 2026 SoundStore. Все права защищены. Не является официальным дилером JBL/Harman Kardon.</div>
+      <div style="display:flex;gap:18px;flex-wrap:wrap">
         <a href="#" style="font-size:13px;color:var(--text-muted);text-decoration:none">Политика конфиденциальности</a>
         <a href="#" style="font-size:13px;color:var(--text-muted);text-decoration:none">Пользовательское соглашение</a>
         <a href="#" style="font-size:13px;color:var(--text-muted);text-decoration:none">Оферта</a>
@@ -1220,89 +999,72 @@
 </footer>
 
 <script>
-  // ─── NAV SCROLL ───
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 20);
-  });
+  // NAV
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20));
 
-  // ─── BURGER ───
+  // BURGER
   const burger = document.getElementById('burger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  burger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
-  function closeMobile() { mobileMenu.classList.remove('open'); }
+  const mobMenu = document.getElementById('mobMenu');
+  burger.addEventListener('click', () => mobMenu.classList.toggle('open'));
+  function closeMob() { mobMenu.classList.remove('open'); }
 
-  // ─── SCROLL REVEAL ───
-  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => observer.observe(el));
+  // REVEAL
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold: 0.11 });
+  document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el => obs.observe(el));
 
-  // ─── COUNTER ANIMATION ───
-  function animateCounter(el) {
-    const target = parseInt(el.dataset.target);
+  // COUNTERS
+  function animCount(el) {
+    const raw = el.dataset.target;
     const suffix = el.dataset.suffix || '';
-    const duration = 1800;
-    const step = target / (duration / 16);
-    let current = 0;
-    const timer = setInterval(() => {
-      current = Math.min(current + step, target);
-      el.textContent = Math.floor(current).toLocaleString('ru-RU') + suffix;
-      if (current >= target) clearInterval(timer);
+    const target = parseInt(raw.replace(/\s/g,''));
+    const dur = 1800, step = target / (dur / 16);
+    let cur = 0;
+    const t = setInterval(() => {
+      cur = Math.min(cur + step, target);
+      el.textContent = Math.floor(cur).toLocaleString('ru-RU') + suffix;
+      if (cur >= target) clearInterval(t);
     }, 16);
   }
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        animateCounter(e.target);
-        counterObserver.unobserve(e.target);
-      }
-    });
+  const cObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { animCount(e.target); cObs.unobserve(e.target); } });
   }, { threshold: 0.5 });
-  document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+  document.querySelectorAll('[data-target]').forEach(el => cObs.observe(el));
 
-  // ─── FAQ ───
+  // FAQ
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
+      const open = item.classList.contains('open');
       document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+      if (!open) item.classList.add('open');
     });
   });
 
-  // ─── PRICING TOGGLE ───
-  const toggle = document.getElementById('billingToggle');
-  const monthLabel = document.getElementById('monthLabel');
-  const yearLabel = document.getElementById('yearLabel');
+  // PRICING TOGGLE
+  const ptoggle = document.getElementById('ptoggle');
+  const mlbl = document.getElementById('mlbl');
+  const ylbl = document.getElementById('ylbl');
   let isYear = false;
-
-  toggle.addEventListener('click', () => {
+  ptoggle.addEventListener('click', () => {
     isYear = !isYear;
-    toggle.classList.toggle('year', isYear);
-    monthLabel.classList.toggle('active', !isYear);
-    yearLabel.classList.toggle('active', isYear);
-
-    document.querySelectorAll('.price-amount').forEach(el => {
-      const val = isYear ? parseInt(el.dataset.year) : parseInt(el.dataset.month);
-      el.textContent = val.toLocaleString('ru-RU') + ' ₽';
+    ptoggle.classList.toggle('yr', isYear);
+    mlbl.classList.toggle('act', !isYear);
+    ylbl.classList.toggle('act', isYear);
+    document.querySelectorAll('.p-amt').forEach(el => {
+      const val = isYear ? el.dataset.year : el.dataset.month;
+      el.textContent = val + ' ₽';
     });
   });
 
-  // ─── CTA FORM ───
+  // CTA
   function handleCta(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.cta-btn');
-    btn.textContent = '✓ Отправлено!';
-    btn.style.background = '#2dd4bf';
+    btn.textContent = '✓ Промокод отправлен!';
+    btn.style.background = '#ff6b35';
     btn.style.color = 'white';
     setTimeout(() => {
       btn.textContent = 'Получить скидку';
